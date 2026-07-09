@@ -91,3 +91,30 @@ class BaseStockVend : public wxFrame
 
 };
 
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseAggClienteVend
+///////////////////////////////////////////////////////////////////////////////
+class BaseAggClienteVend : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText4;
+		wxStaticText* m_staticText5;
+		wxTextCtrl* m_textCtrl2;
+		wxStaticText* m_staticText6;
+		wxTextCtrl* m_textCtrl3;
+		wxStaticText* m_staticText7;
+		wxTextCtrl* m_textCtrl4;
+		wxStaticText* m_staticText8;
+		wxTextCtrl* m_textCtrl5;
+		wxButton* m_button9;
+
+	public:
+
+		BaseAggClienteVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseAggClienteVend();
+
+};
+

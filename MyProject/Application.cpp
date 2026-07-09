@@ -1,12 +1,12 @@
 #include <wx/image.h>
 #include "Application.h"
-#include "HijaPrincipal.h"
+#include "HijaAggClienteVend.h"
 
 IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {
 	wxInitAllImageHandlers();
-	HijaPrincipal *win = new HijaPrincipal(NULL);
+	HijaAggClienteVend *win = new HijaAggClienteVend(NULL);
 	win->Show();
 	return true;
 }
