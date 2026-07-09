@@ -21,6 +21,8 @@
 #include <wx/image.h>
 #include <wx/icon.h>
 #include <wx/frame.h>
+#include <wx/textctrl.h>
+#include <wx/grid.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -41,6 +43,51 @@ class BasePrincipal : public wxFrame
 		BasePrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BasePrincipal();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseMenuPrincipalVend
+///////////////////////////////////////////////////////////////////////////////
+class BaseMenuPrincipalVend : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText2;
+		wxButton* m_BotonAggClienteVend;
+		wxButton* m_BotonVenderVend;
+		wxButton* m_BotonVerstockVend;
+		wxTextCtrl* m_TextoVend;
+		wxButton* m_BotonBuscarVend;
+		wxGrid* m_TablaClientesVend;
+		wxButton* m_BotonVolverVend;
+
+	public:
+
+		BaseMenuPrincipalVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseMenuPrincipalVend();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseStockVend
+///////////////////////////////////////////////////////////////////////////////
+class BaseStockVend : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText3;
+		wxGrid* m_TablaStockVend;
+		wxButton* m_BotonVolverStockVend;
+
+	public:
+
+		BaseStockVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseStockVend();
 
 };
 
