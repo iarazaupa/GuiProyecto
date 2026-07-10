@@ -12,7 +12,7 @@
 BasePrincipal::BasePrincipal( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-	this->SetBackgroundColour( wxColour( 255, 255, 255 ) );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
 
 	wxBoxSizer* bSizer2;
 	bSizer2 = new wxBoxSizer( wxVERTICAL );
@@ -97,8 +97,8 @@ BaseMenuPrincipalVend::BaseMenuPrincipalVend( wxWindow* parent, wxWindowID id, c
 	wxBoxSizer* bSizer9;
 	bSizer9 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_TextoVend = new wxTextCtrl( this, wxID_ANY, wxT("Ingrese nombre del cliente"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer9->Add( m_TextoVend, 1, wxALL, 5 );
+	m_TextoMenuPVend = new wxTextCtrl( this, wxID_ANY, wxT("Ingrese nombre del cliente"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer9->Add( m_TextoMenuPVend, 1, wxALL, 5 );
 
 	m_BotonBuscarVend = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer9->Add( m_BotonBuscarVend, 0, wxALL, 5 );
@@ -250,6 +250,8 @@ BaseAggClienteVend::BaseAggClienteVend( wxWindow* parent, wxWindowID id, const w
 
 	m_staticText4 = new wxStaticText( this, wxID_ANY, wxT("Agregar Cliente"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText4->Wrap( -1 );
+	m_staticText4->SetFont( wxFont( 16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
+
 	bSizer16->Add( m_staticText4, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
@@ -330,5 +332,110 @@ BaseAggClienteVend::BaseAggClienteVend( wxWindow* parent, wxWindowID id, const w
 }
 
 BaseAggClienteVend::~BaseAggClienteVend()
+{
+}
+
+BaseVentaVend::BaseVentaVend( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
+
+	wxBoxSizer* bSizer23;
+	bSizer23 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer24;
+	bSizer24 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText9 = new wxStaticText( this, wxID_ANY, wxT("Venta"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText9->Wrap( -1 );
+	m_staticText9->SetFont( wxFont( 16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
+
+	bSizer24->Add( m_staticText9, 0, wxALL, 5 );
+
+
+	bSizer23->Add( bSizer24, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer25;
+	bSizer25 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText10 = new wxStaticText( this, wxID_ANY, wxT("ID del cliente para la venta:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText10->Wrap( -1 );
+	bSizer25->Add( m_staticText10, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_TextoVentaVend = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer25->Add( m_TextoVentaVend, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer23->Add( bSizer25, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	this->SetSizer( bSizer23 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+}
+
+BaseVentaVend::~BaseVentaVend()
+{
+}
+
+BaseMenuVentaVend::BaseMenuVentaVend( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
+
+	wxBoxSizer* bSizer26;
+	bSizer26 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer29;
+	bSizer29 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText11 = new wxStaticText( this, wxID_ANY, wxT("Menu de Venta"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText11->Wrap( -1 );
+	m_staticText11->SetFont( wxFont( 16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
+
+	bSizer29->Add( m_staticText11, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer26->Add( bSizer29, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer27;
+	bSizer27 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer28;
+	bSizer28 = new wxBoxSizer( wxVERTICAL );
+
+	m_BotonAggProductoMenuVentaVend = new wxButton( this, wxID_ANY, wxT("Agregar Producto"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer28->Add( m_BotonAggProductoMenuVentaVend, 0, wxALL, 5 );
+
+	m_BotonQuitProductoMenuVentaVend = new wxButton( this, wxID_ANY, wxT("Quitar Producto"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer28->Add( m_BotonQuitProductoMenuVentaVend, 0, wxALL|wxEXPAND, 5 );
+
+	m_BotonTicketMenuVentaVend = new wxButton( this, wxID_ANY, wxT("Ver Ticket actual"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer28->Add( m_BotonTicketMenuVentaVend, 0, wxALL|wxEXPAND, 5 );
+
+
+	bSizer27->Add( bSizer28, 0, 0, 5 );
+
+
+	bSizer26->Add( bSizer27, 1, wxALIGN_CENTER_HORIZONTAL, 20 );
+
+	wxBoxSizer* bSizer31;
+	bSizer31 = new wxBoxSizer( wxVERTICAL );
+
+	m_BotonConfVentaMenuVentaVend = new wxButton( this, wxID_ANY, wxT("Confirmar Venta"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer31->Add( m_BotonConfVentaMenuVentaVend, 0, wxALL|wxEXPAND, 5 );
+
+
+	bSizer26->Add( bSizer31, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	this->SetSizer( bSizer26 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+}
+
+BaseMenuVentaVend::~BaseMenuVentaVend()
 {
 }

@@ -58,7 +58,7 @@ class BaseMenuPrincipalVend : public wxFrame
 		wxButton* m_BotonAggClienteVend;
 		wxButton* m_BotonVenderVend;
 		wxButton* m_BotonVerstockVend;
-		wxTextCtrl* m_TextoVend;
+		wxTextCtrl* m_TextoMenuPVend;
 		wxButton* m_BotonBuscarVend;
 		wxGrid* m_TablaClientesVend;
 		wxButton* m_BotonVolverVend;
@@ -115,6 +115,48 @@ class BaseAggClienteVend : public wxFrame
 		BaseAggClienteVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseAggClienteVend();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseVentaVend
+///////////////////////////////////////////////////////////////////////////////
+class BaseVentaVend : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText9;
+		wxStaticText* m_staticText10;
+		wxTextCtrl* m_TextoVentaVend;
+
+	public:
+
+		BaseVentaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseVentaVend();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseMenuVentaVend
+///////////////////////////////////////////////////////////////////////////////
+class BaseMenuVentaVend : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText11;
+		wxButton* m_BotonAggProductoMenuVentaVend;
+		wxButton* m_BotonQuitProductoMenuVentaVend;
+		wxButton* m_BotonTicketMenuVentaVend;
+		wxButton* m_BotonConfVentaMenuVentaVend;
+
+	public:
+
+		BaseMenuVentaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseMenuVentaVend();
 
 };
 
