@@ -102,14 +102,14 @@ class BaseAggClienteVend : public wxFrame
 	protected:
 		wxStaticText* m_staticText4;
 		wxStaticText* m_staticText5;
-		wxTextCtrl* m_textCtrl2;
+		wxTextCtrl* m_textDNIAggClienteVend;
 		wxStaticText* m_staticText6;
-		wxTextCtrl* m_textCtrl3;
+		wxTextCtrl* m_textNomAggClienteVend;
 		wxStaticText* m_staticText7;
-		wxTextCtrl* m_textCtrl4;
+		wxTextCtrl* m_textEmailAggClienteVend;
 		wxStaticText* m_staticText8;
-		wxTextCtrl* m_textCtrl5;
-		wxButton* m_button9;
+		wxTextCtrl* m_textTelAggClienteVend;
+		wxButton* m_BotonAgregarAggClienteVend;
 
 	public:
 
@@ -183,6 +183,64 @@ class BaseMVAggProductoVend : public wxFrame
 		BaseMVAggProductoVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseMVAggProductoVend();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseMVQuitarProd
+///////////////////////////////////////////////////////////////////////////////
+class BaseMVQuitarProd : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText15;
+		wxStaticText* m_staticText16;
+		wxTextCtrl* m_textIDQuitarProdVend;
+		wxStaticText* m_staticText19;
+		wxTextCtrl* m_textCantQuitarProdVend;
+		wxGrid* m_TablaQuitarProdVend;
+		wxButton* m_BotonEliminarQuitProdVend;
+
+	public:
+
+		BaseMVQuitarProd( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseMVQuitarProd();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseTicketActualVend
+///////////////////////////////////////////////////////////////////////////////
+class BaseTicketActualVend : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText20;
+		wxStaticText* m_staticText21;
+		wxStaticText* m_textVentaID;
+		wxStaticText* m_staticText23;
+		wxStaticText* m_textCliente;
+		wxStaticText* m_staticText25;
+		wxStaticText* m_textProducto;
+		wxStaticText* m_staticText27;
+		wxStaticText* m_textCantidad;
+		wxStaticText* m_staticText29;
+		wxStaticText* m_textPrecioUnitario;
+		wxStaticText* m_staticText31;
+		wxStaticText* m_textSubtotal;
+		wxStaticText* m_staticText33;
+		wxStaticText* m_textFecha;
+		wxStaticText* m_staticText35;
+		wxStaticText* m_textTotal;
+
+	public:
+
+		BaseTicketActualVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseTicketActualVend();
 
 };
 
