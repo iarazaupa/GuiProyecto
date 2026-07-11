@@ -23,6 +23,7 @@
 #include <wx/frame.h>
 #include <wx/textctrl.h>
 #include <wx/grid.h>
+#include <wx/combobox.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -157,6 +158,31 @@ class BaseMenuVentaVend : public wxFrame
 		BaseMenuVentaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseMenuVentaVend();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseMVAggProductoVend
+///////////////////////////////////////////////////////////////////////////////
+class BaseMVAggProductoVend : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText12;
+		wxComboBox* m_MDespCategVend;
+		wxStaticText* m_staticText13;
+		wxTextCtrl* m_IDProdVend;
+		wxStaticText* m_staticText14;
+		wxTextCtrl* m_CantidadVend;
+		wxGrid* m_TablaAggProductoVend;
+		wxButton* m_BotonAggProductoVend;
+
+	public:
+
+		BaseMVAggProductoVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseMVAggProductoVend();
 
 };
 

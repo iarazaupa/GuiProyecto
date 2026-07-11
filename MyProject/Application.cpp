@@ -1,12 +1,12 @@
 #include <wx/image.h>
 #include "Application.h"
-#include "HijaMenuVentaVend.h"
+#include "HijaMVAggProductoVend.h"
 
 IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {
 	wxInitAllImageHandlers();
-	HijaMenuVentaVend *win = new HijaMenuVentaVend(NULL);
+	HijaMVAggProductoVend *win = new HijaMVAggProductoVend(NULL);
 	win->Show();
 	return true;
 }
