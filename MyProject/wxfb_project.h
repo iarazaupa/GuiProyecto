@@ -24,6 +24,7 @@
 #include <wx/textctrl.h>
 #include <wx/grid.h>
 #include <wx/combobox.h>
+#include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -241,6 +242,61 @@ class BaseTicketActualVend : public wxFrame
 		BaseTicketActualVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseTicketActualVend();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseVentaConfirmadaVend
+///////////////////////////////////////////////////////////////////////////////
+class BaseVentaConfirmadaVend : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText20;
+		wxStaticText* m_staticText21;
+		wxStaticText* m_textVentaConfID;
+		wxStaticText* m_staticText23;
+		wxStaticText* m_textClienteConf;
+		wxStaticText* m_staticText25;
+		wxStaticText* m_textProductoConf;
+		wxStaticText* m_staticText27;
+		wxStaticText* m_textCantidadConf;
+		wxStaticText* m_staticText29;
+		wxStaticText* m_textPrecioUnitarioConf;
+		wxStaticText* m_staticText31;
+		wxStaticText* m_textSubtotalConf;
+		wxStaticText* m_staticText33;
+		wxStaticText* m_textFechaConf;
+		wxStaticText* m_staticText35;
+		wxStaticText* m_textTotalConf;
+		wxButton* m_MenuPrincipalVConf;
+
+	public:
+
+		BaseVentaConfirmadaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 218,311 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~BaseVentaConfirmadaVend();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseAdministrador
+///////////////////////////////////////////////////////////////////////////////
+class BaseAdministrador : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText52;
+		wxTextCtrl* m_textContrasenaAdmin;
+		wxButton* m_BotonIngresarAdmin;
+
+	public:
+
+		BaseAdministrador( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseAdministrador();
 
 };
 

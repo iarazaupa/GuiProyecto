@@ -816,3 +816,216 @@ BaseTicketActualVend::BaseTicketActualVend( wxWindow* parent, wxWindowID id, con
 BaseTicketActualVend::~BaseTicketActualVend()
 {
 }
+
+BaseVentaConfirmadaVend::BaseVentaConfirmadaVend( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
+
+	wxBoxSizer* bSizer45;
+	bSizer45 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer70;
+	bSizer70 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText20 = new wxStaticText( this, wxID_ANY, wxT("Ticket"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText20->Wrap( -1 );
+	m_staticText20->SetFont( wxFont( 16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
+
+	bSizer70->Add( m_staticText20, 0, wxALL, 5 );
+
+
+	bSizer45->Add( bSizer70, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer57;
+	bSizer57 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer47;
+	bSizer47 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText21 = new wxStaticText( this, wxID_ANY, wxT("Venta ID:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText21->Wrap( -1 );
+	bSizer47->Add( m_staticText21, 1, wxALL, 5 );
+
+	m_textVentaConfID = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textVentaConfID->Wrap( -1 );
+	bSizer47->Add( m_textVentaConfID, 1, wxALL, 5 );
+
+
+	bSizer57->Add( bSizer47, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer48;
+	bSizer48 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText23 = new wxStaticText( this, wxID_ANY, wxT("Cliente:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText23->Wrap( -1 );
+	bSizer48->Add( m_staticText23, 1, wxALL, 5 );
+
+	m_textClienteConf = new wxStaticText( this, wxID_ANY, wxT("pepe"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textClienteConf->Wrap( -1 );
+	bSizer48->Add( m_textClienteConf, 1, wxEXPAND|wxALL, 5 );
+
+
+	bSizer57->Add( bSizer48, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer49;
+	bSizer49 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText25 = new wxStaticText( this, wxID_ANY, wxT("Producto:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText25->Wrap( -1 );
+	bSizer49->Add( m_staticText25, 0, wxALL, 5 );
+
+	m_textProductoConf = new wxStaticText( this, wxID_ANY, wxT("Mate Imperial"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textProductoConf->Wrap( -1 );
+	bSizer49->Add( m_textProductoConf, 0, wxALL, 5 );
+
+
+	bSizer57->Add( bSizer49, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer50;
+	bSizer50 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText27 = new wxStaticText( this, wxID_ANY, wxT("Cantidad:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText27->Wrap( -1 );
+	bSizer50->Add( m_staticText27, 0, wxALL, 5 );
+
+	m_textCantidadConf = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCantidadConf->Wrap( -1 );
+	bSizer50->Add( m_textCantidadConf, 0, wxALL, 5 );
+
+
+	bSizer57->Add( bSizer50, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer51;
+	bSizer51 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText29 = new wxStaticText( this, wxID_ANY, wxT("Precio Unitario:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText29->Wrap( -1 );
+	bSizer51->Add( m_staticText29, 0, wxALL, 5 );
+
+	m_textPrecioUnitarioConf = new wxStaticText( this, wxID_ANY, wxT("$3.000"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textPrecioUnitarioConf->Wrap( -1 );
+	bSizer51->Add( m_textPrecioUnitarioConf, 0, wxALL, 5 );
+
+
+	bSizer57->Add( bSizer51, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer52;
+	bSizer52 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText31 = new wxStaticText( this, wxID_ANY, wxT("Subtotal:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText31->Wrap( -1 );
+	bSizer52->Add( m_staticText31, 0, wxALL, 5 );
+
+	m_textSubtotalConf = new wxStaticText( this, wxID_ANY, wxT("$"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textSubtotalConf->Wrap( -1 );
+	bSizer52->Add( m_textSubtotalConf, 0, wxALL, 5 );
+
+
+	bSizer57->Add( bSizer52, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer55;
+	bSizer55 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText33 = new wxStaticText( this, wxID_ANY, wxT("Fecha:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText33->Wrap( -1 );
+	bSizer55->Add( m_staticText33, 0, wxALL, 5 );
+
+	m_textFechaConf = new wxStaticText( this, wxID_ANY, wxT("0/00/0000"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textFechaConf->Wrap( -1 );
+	bSizer55->Add( m_textFechaConf, 0, wxALL, 5 );
+
+
+	bSizer57->Add( bSizer55, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer56;
+	bSizer56 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText35 = new wxStaticText( this, wxID_ANY, wxT("Total:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText35->Wrap( -1 );
+	bSizer56->Add( m_staticText35, 0, wxALL, 5 );
+
+	m_textTotalConf = new wxStaticText( this, wxID_ANY, wxT("$"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textTotalConf->Wrap( -1 );
+	bSizer56->Add( m_textTotalConf, 0, wxALL, 5 );
+
+
+	bSizer57->Add( bSizer56, 0, wxEXPAND, 5 );
+
+
+	bSizer45->Add( bSizer57, 0, wxALIGN_CENTER, 5 );
+
+	wxBoxSizer* bSizer71;
+	bSizer71 = new wxBoxSizer( wxVERTICAL );
+
+	m_MenuPrincipalVConf = new wxButton( this, wxID_ANY, wxT("Menu Principal"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer71->Add( m_MenuPrincipalVConf, 0, wxALL, 5 );
+
+
+	bSizer45->Add( bSizer71, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	this->SetSizer( bSizer45 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+}
+
+BaseVentaConfirmadaVend::~BaseVentaConfirmadaVend()
+{
+}
+
+BaseAdministrador::BaseAdministrador( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
+
+	wxBoxSizer* bSizer68;
+	bSizer68 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer69;
+	bSizer69 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText52 = new wxStaticText( this, wxID_ANY, wxT("Ingrese la contrasena"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText52->Wrap( -1 );
+	m_staticText52->SetFont( wxFont( 16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
+
+	bSizer69->Add( m_staticText52, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer68->Add( bSizer69, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer70;
+	bSizer70 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer71;
+	bSizer71 = new wxBoxSizer( wxVERTICAL );
+
+	m_textContrasenaAdmin = new wxTextCtrl( this, wxID_ANY, wxT("Contrasena"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer71->Add( m_textContrasenaAdmin, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer70->Add( bSizer71, 1, 0, 5 );
+
+	wxBoxSizer* bSizer72;
+	bSizer72 = new wxBoxSizer( wxVERTICAL );
+
+	m_BotonIngresarAdmin = new wxButton( this, wxID_ANY, wxT("Ingresar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer72->Add( m_BotonIngresarAdmin, 0, wxALL, 5 );
+
+
+	bSizer70->Add( bSizer72, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer68->Add( bSizer70, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	this->SetSizer( bSizer68 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+}
+
+BaseAdministrador::~BaseAdministrador()
+{
+}
