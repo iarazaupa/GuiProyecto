@@ -1265,3 +1265,52 @@ BaseModificarCliente::BaseModificarCliente( wxWindow* parent, wxWindowID id, con
 BaseModificarCliente::~BaseModificarCliente()
 {
 }
+
+BaseAdministradorContrasenia::BaseAdministradorContrasenia( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
+
+	wxBoxSizer* bSizer91;
+	bSizer91 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer92;
+	bSizer92 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText74 = new wxStaticText( this, wxID_ANY, wxT("Ingrese contraseña:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText74->Wrap( -1 );
+	m_staticText74->SetFont( wxFont( 12, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
+
+	bSizer92->Add( m_staticText74, 1, wxALL, 20 );
+
+
+	bSizer91->Add( bSizer92, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer93;
+	bSizer93 = new wxBoxSizer( wxVERTICAL );
+
+	m_textIngreseContraseniaAdmin = new wxTextCtrl( this, wxID_ANY, wxT("contraseña..."), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer93->Add( m_textIngreseContraseniaAdmin, 0, wxALL, 15 );
+
+
+	bSizer91->Add( bSizer93, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer94;
+	bSizer94 = new wxBoxSizer( wxVERTICAL );
+
+	m_botonIngresarAdmin = new wxButton( this, wxID_ANY, wxT("Ingresar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer94->Add( m_botonIngresarAdmin, 1, wxALL|wxEXPAND, 20 );
+
+
+	bSizer91->Add( bSizer94, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	this->SetSizer( bSizer91 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+}
+
+BaseAdministradorContrasenia::~BaseAdministradorContrasenia()
+{
+}

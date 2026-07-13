@@ -360,3 +360,23 @@ class BaseModificarCliente : public wxFrame
 
 };
 
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseAdministradorContrasenia
+///////////////////////////////////////////////////////////////////////////////
+class BaseAdministradorContrasenia : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText74;
+		wxTextCtrl* m_textIngreseContraseniaAdmin;
+		wxButton* m_botonIngresarAdmin;
+
+	public:
+
+		BaseAdministradorContrasenia( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 218,311 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~BaseAdministradorContrasenia();
+
+};
+

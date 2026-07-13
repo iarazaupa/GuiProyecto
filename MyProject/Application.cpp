@@ -1,12 +1,12 @@
 #include <wx/image.h>
 #include "Application.h"
-#include "HijaBuscarClienteResult.h"
+#include "HijaAdministradorContrasenia.h"
 
 IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {
 	wxInitAllImageHandlers();
-	HijaBuscarClienteResult *win = new HijaBuscarClienteResult(NULL);
+	HijaAdministradorContrasenia *win = new HijaAdministradorContrasenia(NULL);
 	win->Show();
 	return true;
 }
