@@ -60,6 +60,7 @@ class BaseMenuPrincipalVend : public wxFrame
 		wxButton* m_BotonAggClienteVend;
 		wxButton* m_BotonVenderVend;
 		wxButton* m_BotonVerstockVend;
+		wxButton* m_botonModfDatosClientes;
 		wxTextCtrl* m_TextoMenuPVend;
 		wxButton* m_BotonBuscarVend;
 		wxGrid* m_TablaClientesVend;
@@ -212,9 +213,9 @@ class BaseMVQuitarProd : public wxFrame
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class BaseTicketActualVend
+/// Class BaseTicketActual
 ///////////////////////////////////////////////////////////////////////////////
-class BaseTicketActualVend : public wxFrame
+class BaseTicketActual : public wxDialog
 {
 	private:
 
@@ -239,9 +240,9 @@ class BaseTicketActualVend : public wxFrame
 
 	public:
 
-		BaseTicketActualVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseTicketActual( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
 
-		~BaseTicketActualVend();
+		~BaseTicketActual();
 
 };
 
@@ -297,6 +298,65 @@ class BaseAdministrador : public wxFrame
 		BaseAdministrador( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseAdministrador();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseBuscarClienteResult
+///////////////////////////////////////////////////////////////////////////////
+class BaseBuscarClienteResult : public wxDialog
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText88;
+		wxStaticText* m_staticText89;
+		wxStaticText* m_TextDniCliente;
+		wxStaticText* m_staticText90;
+		wxStaticText* m_textNombreCliente;
+		wxStaticText* m_staticText91;
+		wxStaticText* m_textEmailCliente;
+		wxStaticText* m_staticText92;
+		wxStaticText* m_textTelefonoCliente;
+
+	public:
+
+		BaseBuscarClienteResult( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 218,311 ), long style = wxDEFAULT_DIALOG_STYLE );
+
+		~BaseBuscarClienteResult();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseModificarCliente
+///////////////////////////////////////////////////////////////////////////////
+class BaseModificarCliente : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText88;
+		wxStaticText* m_staticText89;
+		wxStaticText* m_TextDniCliente;
+		wxStaticText* m_staticText90;
+		wxStaticText* m_textNombreCliente;
+		wxStaticText* m_staticText126;
+		wxTextCtrl* m_TextModifNombreCliente;
+		wxStaticText* m_staticText901;
+		wxStaticText* m_textEmailCliente;
+		wxStaticText* m_staticText1261;
+		wxTextCtrl* m_TextModifEmailCliente;
+		wxStaticText* m_staticText902;
+		wxStaticText* m_textNombreCliente2;
+		wxStaticText* m_staticText1262;
+		wxTextCtrl* m_TextModifTelefonoCliente;
+		wxButton* m_BotonGuardarModificacion;
+
+	public:
+
+		BaseModificarCliente( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseModificarCliente();
 
 };
 

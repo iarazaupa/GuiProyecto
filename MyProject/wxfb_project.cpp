@@ -91,13 +91,16 @@ BaseMenuPrincipalVend::BaseMenuPrincipalVend( wxWindow* parent, wxWindowID id, c
 	m_BotonVerstockVend = new wxButton( this, wxID_ANY, wxT("Ver stock"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer7->Add( m_BotonVerstockVend, 0, wxALL, 5 );
 
+	m_botonModfDatosClientes = new wxButton( this, wxID_ANY, wxT("Modificar Clientes"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer7->Add( m_botonModfDatosClientes, 0, wxALL, 5 );
+
 
 	bSizer4->Add( bSizer7, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	wxBoxSizer* bSizer9;
 	bSizer9 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_TextoMenuPVend = new wxTextCtrl( this, wxID_ANY, wxT("Ingrese nombre del cliente"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_TextoMenuPVend = new wxTextCtrl( this, wxID_ANY, wxT("Ingrese Dni del cliente"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer9->Add( m_TextoMenuPVend, 1, wxALL, 5 );
 
 	m_BotonBuscarVend = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -668,10 +671,9 @@ BaseMVQuitarProd::~BaseMVQuitarProd()
 {
 }
 
-BaseTicketActualVend::BaseTicketActualVend( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+BaseTicketActual::BaseTicketActual( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
 
 	wxBoxSizer* bSizer45;
 	bSizer45 = new wxBoxSizer( wxVERTICAL );
@@ -809,11 +811,12 @@ BaseTicketActualVend::BaseTicketActualVend( wxWindow* parent, wxWindowID id, con
 
 	this->SetSizer( bSizer45 );
 	this->Layout();
+	bSizer45->Fit( this );
 
 	this->Centre( wxBOTH );
 }
 
-BaseTicketActualVend::~BaseTicketActualVend()
+BaseTicketActual::~BaseTicketActual()
 {
 }
 
@@ -1027,5 +1030,238 @@ BaseAdministrador::BaseAdministrador( wxWindow* parent, wxWindowID id, const wxS
 }
 
 BaseAdministrador::~BaseAdministrador()
+{
+}
+
+BaseBuscarClienteResult::BaseBuscarClienteResult( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* bSizer100;
+	bSizer100 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer101;
+	bSizer101 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText88 = new wxStaticText( this, wxID_ANY, wxT("Cliente"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText88->Wrap( -1 );
+	m_staticText88->SetFont( wxFont( 16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
+
+	bSizer101->Add( m_staticText88, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer102;
+	bSizer102 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText89 = new wxStaticText( this, wxID_ANY, wxT("Dni :"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText89->Wrap( -1 );
+	bSizer102->Add( m_staticText89, 0, wxALL, 5 );
+
+	m_TextDniCliente = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_TextDniCliente->Wrap( -1 );
+	bSizer102->Add( m_TextDniCliente, 0, wxALL, 5 );
+
+
+	bSizer101->Add( bSizer102, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer103;
+	bSizer103 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText90 = new wxStaticText( this, wxID_ANY, wxT("Nombre :"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText90->Wrap( -1 );
+	bSizer103->Add( m_staticText90, 0, wxALL, 5 );
+
+	m_textNombreCliente = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textNombreCliente->Wrap( -1 );
+	bSizer103->Add( m_textNombreCliente, 0, wxALL, 5 );
+
+
+	bSizer101->Add( bSizer103, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer104;
+	bSizer104 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText91 = new wxStaticText( this, wxID_ANY, wxT("Email :"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText91->Wrap( -1 );
+	bSizer104->Add( m_staticText91, 0, wxALL, 5 );
+
+	m_textEmailCliente = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textEmailCliente->Wrap( -1 );
+	bSizer104->Add( m_textEmailCliente, 0, wxALL, 5 );
+
+
+	bSizer101->Add( bSizer104, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer105;
+	bSizer105 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText92 = new wxStaticText( this, wxID_ANY, wxT("Telefono :"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText92->Wrap( -1 );
+	bSizer105->Add( m_staticText92, 0, wxALL, 5 );
+
+	m_textTelefonoCliente = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textTelefonoCliente->Wrap( -1 );
+	bSizer105->Add( m_textTelefonoCliente, 0, wxALL, 5 );
+
+
+	bSizer101->Add( bSizer105, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer100->Add( bSizer101, 1, wxEXPAND, 5 );
+
+
+	this->SetSizer( bSizer100 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+}
+
+BaseBuscarClienteResult::~BaseBuscarClienteResult()
+{
+}
+
+BaseModificarCliente::BaseModificarCliente( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
+
+	wxBoxSizer* bSizer100;
+	bSizer100 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer101;
+	bSizer101 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText88 = new wxStaticText( this, wxID_ANY, wxT("Cliente"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText88->Wrap( -1 );
+	m_staticText88->SetFont( wxFont( 16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
+
+	bSizer101->Add( m_staticText88, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 0 );
+
+	wxBoxSizer* bSizer102;
+	bSizer102 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText89 = new wxStaticText( this, wxID_ANY, wxT("Dni :"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText89->Wrap( -1 );
+	bSizer102->Add( m_staticText89, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+
+	m_TextDniCliente = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_TextDniCliente->Wrap( -1 );
+	bSizer102->Add( m_TextDniCliente, 0, wxALL, 5 );
+
+
+	bSizer101->Add( bSizer102, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer103;
+	bSizer103 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer138;
+	bSizer138 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText90 = new wxStaticText( this, wxID_ANY, wxT("Nombre :"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText90->Wrap( -1 );
+	bSizer138->Add( m_staticText90, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+
+	m_textNombreCliente = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textNombreCliente->Wrap( -1 );
+	bSizer138->Add( m_textNombreCliente, 0, wxALL, 5 );
+
+
+	bSizer103->Add( bSizer138, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer137;
+	bSizer137 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText126 = new wxStaticText( this, wxID_ANY, wxT("Ingrese el nuevo nombre"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText126->Wrap( -1 );
+	bSizer137->Add( m_staticText126, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_TextModifNombreCliente = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer137->Add( m_TextModifNombreCliente, 0, wxALL|wxALIGN_BOTTOM, 5 );
+
+
+	bSizer103->Add( bSizer137, 1, wxEXPAND, 5 );
+
+
+	bSizer101->Add( bSizer103, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer1031;
+	bSizer1031 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer1381;
+	bSizer1381 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText901 = new wxStaticText( this, wxID_ANY, wxT("Email:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText901->Wrap( -1 );
+	bSizer1381->Add( m_staticText901, 0, wxALL, 5 );
+
+	m_textEmailCliente = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textEmailCliente->Wrap( -1 );
+	bSizer1381->Add( m_textEmailCliente, 0, wxALL, 5 );
+
+
+	bSizer1031->Add( bSizer1381, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer1371;
+	bSizer1371 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText1261 = new wxStaticText( this, wxID_ANY, wxT("Ingrese el nuevo Email"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText1261->Wrap( -1 );
+	bSizer1371->Add( m_staticText1261, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_TextModifEmailCliente = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer1371->Add( m_TextModifEmailCliente, 0, wxALL|wxALIGN_BOTTOM, 5 );
+
+
+	bSizer1031->Add( bSizer1371, 1, wxEXPAND, 5 );
+
+
+	bSizer101->Add( bSizer1031, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer1032;
+	bSizer1032 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer1382;
+	bSizer1382 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText902 = new wxStaticText( this, wxID_ANY, wxT("Telefono::"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText902->Wrap( -1 );
+	bSizer1382->Add( m_staticText902, 0, wxALL, 5 );
+
+	m_textNombreCliente2 = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textNombreCliente2->Wrap( -1 );
+	bSizer1382->Add( m_textNombreCliente2, 0, wxALL, 5 );
+
+
+	bSizer1032->Add( bSizer1382, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer1372;
+	bSizer1372 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText1262 = new wxStaticText( this, wxID_ANY, wxT("Ingrese el nuevo Telefono"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText1262->Wrap( -1 );
+	bSizer1372->Add( m_staticText1262, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_TextModifTelefonoCliente = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer1372->Add( m_TextModifTelefonoCliente, 0, wxALL|wxALIGN_BOTTOM, 5 );
+
+
+	bSizer1032->Add( bSizer1372, 1, wxEXPAND, 5 );
+
+
+	bSizer101->Add( bSizer1032, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	m_BotonGuardarModificacion = new wxButton( this, wxID_ANY, wxT("Guardar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer101->Add( m_BotonGuardarModificacion, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer100->Add( bSizer101, 1, wxEXPAND, 5 );
+
+
+	this->SetSizer( bSizer100 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+}
+
+BaseModificarCliente::~BaseModificarCliente()
 {
 }
