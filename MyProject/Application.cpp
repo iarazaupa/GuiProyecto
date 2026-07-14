@@ -1,12 +1,12 @@
 #include <wx/image.h>
 #include "Application.h"
-#include "HijaAdministradorContrasenia.h"
+#include "HijaAggClienteAdmin.h"
 
 IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {
 	wxInitAllImageHandlers();
-	HijaAdministradorContrasenia *win = new HijaAdministradorContrasenia(NULL);
+	HijaAggClienteAdmin *win = new HijaAggClienteAdmin(NULL);
 	win->Show();
 	return true;
 }

@@ -24,6 +24,7 @@
 #include <wx/textctrl.h>
 #include <wx/grid.h>
 #include <wx/combobox.h>
+#include <wx/dynarray.h>
 #include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -377,6 +378,62 @@ class BaseAdministradorContrasenia : public wxDialog
 		BaseAdministradorContrasenia( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 218,311 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BaseAdministradorContrasenia();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseMenuAdmin
+///////////////////////////////////////////////////////////////////////////////
+class BaseMenuAdmin : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText75;
+		wxStaticText* m_staticText76;
+		wxGrid* m_gridVentasDelMes;
+		wxStaticText* m_staticText77;
+		wxGrid* m_gridProductoStockBajo;
+		wxButton* m_BotonAggClienteAdmin;
+		wxButton* m_BotonVerListClienteAdmin;
+		wxButton* m_BotonQuitarProdAdmin;
+		wxButton* m_BotonAggProdAdmin;
+		wxButton* m_BotonVerListProdAdmin;
+		wxButton* m_BotonEliminarCategoriaAdmin;
+		wxButton* m_BotonMenuPrincipalAdmin;
+
+	public:
+
+		BaseMenuAdmin( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 586,328 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseMenuAdmin();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseAggClienteAdmin
+///////////////////////////////////////////////////////////////////////////////
+class BaseAggClienteAdmin : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText4;
+		wxStaticText* m_staticText5;
+		wxTextCtrl* m_textDNIAggClienteVend;
+		wxStaticText* m_staticText6;
+		wxTextCtrl* m_textNomAggClienteAdmin;
+		wxStaticText* m_staticText7;
+		wxTextCtrl* m_textEmailAggClienteVend;
+		wxStaticText* m_staticText8;
+		wxTextCtrl* m_textTelAggClienteAdmin;
+		wxButton* m_BotonAgregarAggClienteAdmin;
+
+	public:
+
+		BaseAggClienteAdmin( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseAggClienteAdmin();
 
 };
 
