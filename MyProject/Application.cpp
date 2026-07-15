@@ -1,12 +1,12 @@
 #include <wx/image.h>
 #include "Application.h"
-#include "HijaAggClienteAdmin.h"
+#include "HijaEliminarCategoriaAdmin.h"
 
 IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {
 	wxInitAllImageHandlers();
-	HijaAggClienteAdmin *win = new HijaAggClienteAdmin(NULL);
+	HijaEliminarCategoriaAdmin *win = new HijaEliminarCategoriaAdmin(NULL);
 	win->Show();
 	return true;
 }

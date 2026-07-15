@@ -437,3 +437,128 @@ class BaseAggClienteAdmin : public wxFrame
 
 };
 
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseAggProductoAdmin
+///////////////////////////////////////////////////////////////////////////////
+class BaseAggProductoAdmin : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText84;
+		wxComboBox* m_BoxCategorias;
+		wxStaticText* m_staticText86;
+		wxTextCtrl* m_TextIDProducAdmin;
+		wxStaticText* m_staticText87;
+		wxTextCtrl* m_TextNombreAdmin;
+		wxStaticText* m_staticText88;
+		wxTextCtrl* m_TextoPrecioAdmin;
+		wxStaticText* m_staticText89;
+		wxTextCtrl* m_TextStockAdmin;
+		wxButton* m_BotonAggAdmin;
+
+	public:
+
+		BaseAggProductoAdmin( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseAggProductoAdmin();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseQuitarProductoAdmin
+///////////////////////////////////////////////////////////////////////////////
+class BaseQuitarProductoAdmin : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText88;
+		wxGrid* m_GridQuitarProducAdmin;
+		wxButton* m_BotonEliminarAdmin;
+
+	public:
+
+		BaseQuitarProductoAdmin( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseQuitarProductoAdmin();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseListProdAdmin
+///////////////////////////////////////////////////////////////////////////////
+class BaseListProdAdmin : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText89;
+		wxGrid* m_GridListProdAdmin;
+
+	public:
+
+		BaseListProdAdmin( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 516,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseListProdAdmin();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseVentasAdmin
+///////////////////////////////////////////////////////////////////////////////
+class BaseVentasAdmin : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText90;
+		wxGrid* m_GridVentasAdmin;
+
+	public:
+
+		BaseVentasAdmin( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 519,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseVentasAdmin();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseListClienteAdmin
+///////////////////////////////////////////////////////////////////////////////
+class BaseListClienteAdmin : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText91;
+		wxGrid* m_GridListClienteAdmin;
+
+	public:
+
+		BaseListClienteAdmin( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseListClienteAdmin();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseEliminarCategoriaAdmin
+///////////////////////////////////////////////////////////////////////////////
+class BaseEliminarCategoriaAdmin : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText92;
+		wxComboBox* m_comboBox3;
+		wxButton* m_button31;
+
+	public:
+
+		BaseEliminarCategoriaAdmin( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseEliminarCategoriaAdmin();
+
+};
+
