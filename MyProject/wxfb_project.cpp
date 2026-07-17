@@ -25,7 +25,7 @@ BasePrincipal::BasePrincipal( wxWindow* parent, wxWindowID id, const wxString& t
 	m_staticText2->SetFont( wxFont( 18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
 	m_staticText2->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
 
-	bSizer3->Add( m_staticText2, 0, wxALIGN_CENTER_HORIZONTAL|wxTOP, 60 );
+	bSizer3->Add( m_staticText2, 0, wxTOP|wxALIGN_CENTER_HORIZONTAL, 60 );
 
 
 	bSizer2->Add( bSizer3, 0, wxEXPAND, 5 );
@@ -978,61 +978,6 @@ BaseVentaConfirmadaVend::~BaseVentaConfirmadaVend()
 {
 }
 
-BaseAdministrador::BaseAdministrador( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
-
-	wxBoxSizer* bSizer68;
-	bSizer68 = new wxBoxSizer( wxVERTICAL );
-
-	wxBoxSizer* bSizer69;
-	bSizer69 = new wxBoxSizer( wxVERTICAL );
-
-	m_staticText52 = new wxStaticText( this, wxID_ANY, wxT("Ingrese la contrasena"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText52->Wrap( -1 );
-	m_staticText52->SetFont( wxFont( 16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
-
-	bSizer69->Add( m_staticText52, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-
-
-	bSizer68->Add( bSizer69, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
-
-	wxBoxSizer* bSizer70;
-	bSizer70 = new wxBoxSizer( wxVERTICAL );
-
-	wxBoxSizer* bSizer71;
-	bSizer71 = new wxBoxSizer( wxVERTICAL );
-
-	m_textContrasenaAdmin = new wxTextCtrl( this, wxID_ANY, wxT("Contrasena"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer71->Add( m_textContrasenaAdmin, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-
-
-	bSizer70->Add( bSizer71, 1, 0, 5 );
-
-	wxBoxSizer* bSizer72;
-	bSizer72 = new wxBoxSizer( wxVERTICAL );
-
-	m_BotonIngresarAdmin = new wxButton( this, wxID_ANY, wxT("Ingresar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer72->Add( m_BotonIngresarAdmin, 0, wxALL, 5 );
-
-
-	bSizer70->Add( bSizer72, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
-
-
-	bSizer68->Add( bSizer70, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
-
-
-	this->SetSizer( bSizer68 );
-	this->Layout();
-
-	this->Centre( wxBOTH );
-}
-
-BaseAdministrador::~BaseAdministrador()
-{
-}
-
 BaseBuscarClienteResult::BaseBuscarClienteResult( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
@@ -1326,7 +1271,7 @@ BaseMenuAdmin::BaseMenuAdmin( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizer96;
 	bSizer96 = new wxBoxSizer( wxVERTICAL );
 
-	m_staticText75 = new wxStaticText( this, wxID_ANY, wxT("Menu Aministrador"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText75 = new wxStaticText( this, wxID_ANY, wxT("Menu Administrador"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText75->Wrap( -1 );
 	m_staticText75->SetFont( wxFont( 14, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
 
@@ -1442,6 +1387,9 @@ BaseMenuAdmin::BaseMenuAdmin( wxWindow* parent, wxWindowID id, const wxString& t
 	m_BotonQuitarProdAdmin = new wxButton( this, wxID_ANY, wxT("Quitar Producto"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer101->Add( m_BotonQuitarProdAdmin, 0, wxALL, 5 );
 
+	m_BotonVerVentasAdmin = new wxButton( this, wxID_ANY, wxT("Ver Ventas"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer101->Add( m_BotonVerVentasAdmin, 0, wxALL, 5 );
+
 
 	bSizer100->Add( bSizer101, 0, wxALIGN_CENTER_HORIZONTAL, 0 );
 
@@ -1457,11 +1405,14 @@ BaseMenuAdmin::BaseMenuAdmin( wxWindow* parent, wxWindowID id, const wxString& t
 	m_BotonEliminarCategoriaAdmin = new wxButton( this, wxID_ANY, wxT("Eliminar Categoria"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer102->Add( m_BotonEliminarCategoriaAdmin, 0, wxALL, 5 );
 
+	m_BotonEditarCategoriaAdmin = new wxButton( this, wxID_ANY, wxT("Editar Categoria"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer102->Add( m_BotonEditarCategoriaAdmin, 0, wxALL, 5 );
+
 
 	bSizer100->Add( bSizer102, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
-	bSizer95->Add( bSizer100, 1, wxEXPAND, 5 );
+	bSizer95->Add( bSizer100, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	wxBoxSizer* bSizer103;
 	bSizer103 = new wxBoxSizer( wxVERTICAL );
@@ -1470,7 +1421,7 @@ BaseMenuAdmin::BaseMenuAdmin( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizer103->Add( m_BotonMenuPrincipalAdmin, 0, wxALL, 5 );
 
 
-	bSizer95->Add( bSizer103, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer95->Add( bSizer103, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	this->SetSizer( bSizer95 );
@@ -1610,70 +1561,71 @@ BaseAggProductoAdmin::BaseAggProductoAdmin( wxWindow* parent, wxWindowID id, con
 	wxBoxSizer* bSizer116;
 	bSizer116 = new wxBoxSizer( wxVERTICAL );
 
-	m_BoxCategorias = new wxComboBox( this, wxID_ANY, wxT("Categorias.."), wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
+	m_BoxCategorias = new wxComboBox( this, wxID_ANY, wxT("Mate Algarrobo"), wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
 	m_BoxCategorias->Append( wxT("Mate Algarrobo") );
+	m_BoxCategorias->SetSelection( 0 );
 	bSizer116->Add( m_BoxCategorias, 0, wxALL, 5 );
 
 
 	bSizer114->Add( bSizer116, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
-	wxBoxSizer* bSizer119;
-	bSizer119 = new wxBoxSizer( wxVERTICAL );
+	wxBoxSizer* bSizer22;
+	bSizer22 = new wxBoxSizer( wxVERTICAL );
 
-	wxBoxSizer* bSizer120;
-	bSizer120 = new wxBoxSizer( wxHORIZONTAL );
+	wxBoxSizer* bSizer17;
+	bSizer17 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText86 = new wxStaticText( this, wxID_ANY, wxT("ID Producto:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText86->Wrap( -1 );
-	bSizer120->Add( m_staticText86, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_staticText5 = new wxStaticText( this, wxID_ANY, wxT("ID Producto:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText5->Wrap( -1 );
+	bSizer17->Add( m_staticText5, 0, wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_TextIDProducAdmin = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer120->Add( m_TextIDProducAdmin, 0, wxALL, 5 );
+	bSizer17->Add( m_TextIDProducAdmin, 0, wxALL, 5 );
 
 
-	bSizer119->Add( bSizer120, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer22->Add( bSizer17, 0, 0, 5 );
 
-	wxBoxSizer* bSizer121;
-	bSizer121 = new wxBoxSizer( wxHORIZONTAL );
+	wxBoxSizer* bSizer18;
+	bSizer18 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText87 = new wxStaticText( this, wxID_ANY, wxT("Nombre:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText87->Wrap( -1 );
-	bSizer121->Add( m_staticText87, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_staticText6 = new wxStaticText( this, wxID_ANY, wxT("Nombre:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText6->Wrap( -1 );
+	bSizer18->Add( m_staticText6, 0, wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_TextNombreAdmin = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer121->Add( m_TextNombreAdmin, 0, wxALL, 5 );
+	m_TextNombreAdmin = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 100,-1 ), 0 );
+	bSizer18->Add( m_TextNombreAdmin, 0, wxALL, 5 );
 
 
-	bSizer119->Add( bSizer121, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer22->Add( bSizer18, 0, wxEXPAND, 5 );
 
-	wxBoxSizer* bSizer122;
-	bSizer122 = new wxBoxSizer( wxHORIZONTAL );
+	wxBoxSizer* bSizer19;
+	bSizer19 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText88 = new wxStaticText( this, wxID_ANY, wxT("Precio:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText88->Wrap( -1 );
-	bSizer122->Add( m_staticText88, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_staticText7 = new wxStaticText( this, wxID_ANY, wxT("Precio:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText7->Wrap( -1 );
+	bSizer19->Add( m_staticText7, 0, wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_TextoPrecioAdmin = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer122->Add( m_TextoPrecioAdmin, 0, wxALL, 5 );
+	bSizer19->Add( m_TextoPrecioAdmin, 0, wxALL, 5 );
 
 
-	bSizer119->Add( bSizer122, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer22->Add( bSizer19, 0, 0, 5 );
 
-	wxBoxSizer* bSizer123;
-	bSizer123 = new wxBoxSizer( wxHORIZONTAL );
+	wxBoxSizer* bSizer20;
+	bSizer20 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText89 = new wxStaticText( this, wxID_ANY, wxT("Stock:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText89->Wrap( -1 );
-	bSizer123->Add( m_staticText89, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_staticText8 = new wxStaticText( this, wxID_ANY, wxT("Stock:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText8->Wrap( -1 );
+	bSizer20->Add( m_staticText8, 0, wxALIGN_CENTER_VERTICAL, 5 );
 
 	m_TextStockAdmin = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer123->Add( m_TextStockAdmin, 0, wxALL, 5 );
+	bSizer20->Add( m_TextStockAdmin, 1, wxALL, 5 );
 
 
-	bSizer119->Add( bSizer123, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer22->Add( bSizer20, 0, 0, 5 );
 
 
-	bSizer114->Add( bSizer119, 1, wxEXPAND, 5 );
+	bSizer114->Add( bSizer22, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	wxBoxSizer* bSizer124;
 	bSizer124 = new wxBoxSizer( wxVERTICAL );
@@ -1682,7 +1634,7 @@ BaseAggProductoAdmin::BaseAggProductoAdmin( wxWindow* parent, wxWindowID id, con
 	bSizer124->Add( m_BotonAggAdmin, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
-	bSizer114->Add( bSizer124, 1, wxEXPAND, 5 );
+	bSizer114->Add( bSizer124, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	this->SetSizer( bSizer114 );

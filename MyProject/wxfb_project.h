@@ -43,7 +43,7 @@ class BasePrincipal : public wxFrame
 
 	public:
 
-		BasePrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BasePrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Principal"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BasePrincipal();
 
@@ -69,7 +69,7 @@ class BaseMenuPrincipalVend : public wxFrame
 
 	public:
 
-		BaseMenuPrincipalVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseMenuPrincipalVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Vendedor - Menu Principal"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseMenuPrincipalVend();
 
@@ -89,7 +89,7 @@ class BaseStockVend : public wxFrame
 
 	public:
 
-		BaseStockVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseStockVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Vendedor - Stock"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseStockVend();
 
@@ -116,7 +116,7 @@ class BaseAggClienteVend : public wxFrame
 
 	public:
 
-		BaseAggClienteVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseAggClienteVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Vendedor - Agregar Cliente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseAggClienteVend();
 
@@ -136,7 +136,7 @@ class BaseVentaVend : public wxFrame
 
 	public:
 
-		BaseVentaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseVentaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Vendedor - Venta"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseVentaVend();
 
@@ -158,7 +158,7 @@ class BaseMenuVentaVend : public wxFrame
 
 	public:
 
-		BaseMenuVentaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseMenuVentaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Vendedor - Menu de Venta"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseMenuVentaVend();
 
@@ -183,7 +183,7 @@ class BaseMVAggProductoVend : public wxFrame
 
 	public:
 
-		BaseMVAggProductoVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseMVAggProductoVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Menu Venta - Agregar Producto"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseMVAggProductoVend();
 
@@ -207,7 +207,7 @@ class BaseMVQuitarProd : public wxFrame
 
 	public:
 
-		BaseMVQuitarProd( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseMVQuitarProd( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Menu Venta - Quitar Producto"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseMVQuitarProd();
 
@@ -241,7 +241,7 @@ class BaseTicketActual : public wxDialog
 
 	public:
 
-		BaseTicketActual( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+		BaseTicketActual( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Ticket Actual"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BaseTicketActual();
 
@@ -276,29 +276,9 @@ class BaseVentaConfirmadaVend : public wxDialog
 
 	public:
 
-		BaseVentaConfirmadaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 218,311 ), long style = wxDEFAULT_DIALOG_STYLE );
+		BaseVentaConfirmadaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Ticket Confirmado"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 218,311 ), long style = wxDEFAULT_DIALOG_STYLE );
 
 		~BaseVentaConfirmadaVend();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
-/// Class BaseAdministrador
-///////////////////////////////////////////////////////////////////////////////
-class BaseAdministrador : public wxFrame
-{
-	private:
-
-	protected:
-		wxStaticText* m_staticText52;
-		wxTextCtrl* m_textContrasenaAdmin;
-		wxButton* m_BotonIngresarAdmin;
-
-	public:
-
-		BaseAdministrador( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-
-		~BaseAdministrador();
 
 };
 
@@ -397,9 +377,11 @@ class BaseMenuAdmin : public wxFrame
 		wxButton* m_BotonAggClienteAdmin;
 		wxButton* m_BotonVerListClienteAdmin;
 		wxButton* m_BotonQuitarProdAdmin;
+		wxButton* m_BotonVerVentasAdmin;
 		wxButton* m_BotonAggProdAdmin;
 		wxButton* m_BotonVerListProdAdmin;
 		wxButton* m_BotonEliminarCategoriaAdmin;
+		wxButton* m_BotonEditarCategoriaAdmin;
 		wxButton* m_BotonMenuPrincipalAdmin;
 
 	public:
@@ -447,13 +429,13 @@ class BaseAggProductoAdmin : public wxFrame
 	protected:
 		wxStaticText* m_staticText84;
 		wxComboBox* m_BoxCategorias;
-		wxStaticText* m_staticText86;
+		wxStaticText* m_staticText5;
 		wxTextCtrl* m_TextIDProducAdmin;
-		wxStaticText* m_staticText87;
+		wxStaticText* m_staticText6;
 		wxTextCtrl* m_TextNombreAdmin;
-		wxStaticText* m_staticText88;
+		wxStaticText* m_staticText7;
 		wxTextCtrl* m_TextoPrecioAdmin;
-		wxStaticText* m_staticText89;
+		wxStaticText* m_staticText8;
 		wxTextCtrl* m_TextStockAdmin;
 		wxButton* m_BotonAggAdmin;
 

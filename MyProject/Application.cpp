@@ -1,12 +1,12 @@
 #include <wx/image.h>
 #include "Application.h"
-#include "HijaEliminarCategoriaAdmin.h"
+#include "HijaMenuPrincipalVend.h"
 
 IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {
 	wxInitAllImageHandlers();
-	HijaEliminarCategoriaAdmin *win = new HijaEliminarCategoriaAdmin(NULL);
+	HijaMenuPrincipalVend *win = new HijaMenuPrincipalVend(NULL);
 	win->Show();
 	return true;
 }
