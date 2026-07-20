@@ -1405,8 +1405,8 @@ BaseMenuAdmin::BaseMenuAdmin( wxWindow* parent, wxWindowID id, const wxString& t
 	m_BotonEliminarCategoriaAdmin = new wxButton( this, wxID_ANY, wxT("Eliminar Categoria"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer102->Add( m_BotonEliminarCategoriaAdmin, 0, wxALL, 5 );
 
-	m_BotonEditarCategoriaAdmin = new wxButton( this, wxID_ANY, wxT("Editar Categoria"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer102->Add( m_BotonEditarCategoriaAdmin, 0, wxALL, 5 );
+	m_BotonEditarProductoAdmin = new wxButton( this, wxID_ANY, wxT("Editar Producto"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer102->Add( m_BotonEditarProductoAdmin, 0, wxALL, 5 );
 
 
 	bSizer100->Add( bSizer102, 1, wxALIGN_CENTER_HORIZONTAL, 5 );
@@ -1963,5 +1963,143 @@ BaseEliminarCategoriaAdmin::BaseEliminarCategoriaAdmin( wxWindow* parent, wxWind
 }
 
 BaseEliminarCategoriaAdmin::~BaseEliminarCategoriaAdmin()
+{
+}
+
+BaseEditarProducto::BaseEditarProducto( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
+
+	wxBoxSizer* bSizer134;
+	bSizer134 = new wxBoxSizer( wxVERTICAL );
+
+	wxBoxSizer* bSizer135;
+	bSizer135 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText92 = new wxStaticText( this, wxID_ANY, wxT("Editar Producto"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText92->Wrap( -1 );
+	m_staticText92->SetFont( wxFont( 16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Arial") ) );
+
+	bSizer135->Add( m_staticText92, 0, wxALIGN_CENTER_VERTICAL, 5 );
+
+
+	bSizer134->Add( bSizer135, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer136;
+	bSizer136 = new wxBoxSizer( wxVERTICAL );
+
+	m_TablaAggProductoAdmin = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+
+	// Grid
+	m_TablaAggProductoAdmin->CreateGrid( 5, 4 );
+	m_TablaAggProductoAdmin->EnableEditing( true );
+	m_TablaAggProductoAdmin->EnableGridLines( true );
+	m_TablaAggProductoAdmin->EnableDragGridSize( false );
+	m_TablaAggProductoAdmin->SetMargins( 0, 0 );
+
+	// Columns
+	m_TablaAggProductoAdmin->EnableDragColMove( false );
+	m_TablaAggProductoAdmin->EnableDragColSize( true );
+	m_TablaAggProductoAdmin->SetColLabelValue( 0, wxT("ID") );
+	m_TablaAggProductoAdmin->SetColLabelValue( 1, wxT("Nombre") );
+	m_TablaAggProductoAdmin->SetColLabelValue( 2, wxT("Precio") );
+	m_TablaAggProductoAdmin->SetColLabelValue( 3, wxT("Stock") );
+	m_TablaAggProductoAdmin->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+
+	// Rows
+	m_TablaAggProductoAdmin->EnableDragRowSize( true );
+	m_TablaAggProductoAdmin->SetRowLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
+
+	// Label Appearance
+
+	// Cell Defaults
+	m_TablaAggProductoAdmin->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
+	bSizer136->Add( m_TablaAggProductoAdmin, 0, wxALL|wxEXPAND, 5 );
+
+
+	bSizer134->Add( bSizer136, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer140;
+	bSizer140 = new wxBoxSizer( wxHORIZONTAL );
+
+	wxBoxSizer* bSizer141;
+	bSizer141 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText93 = new wxStaticText( this, wxID_ANY, wxT("Nombre:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText93->Wrap( -1 );
+	bSizer141->Add( m_staticText93, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	m_TextNomAdmin = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer141->Add( m_TextNomAdmin, 0, wxALL, 5 );
+
+
+	bSizer140->Add( bSizer141, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer144;
+	bSizer144 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText97 = new wxStaticText( this, wxID_ANY, wxT("Categoria:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText97->Wrap( -1 );
+	bSizer144->Add( m_staticText97, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	m_BoxCategoriaAdmin = new wxComboBox( this, wxID_ANY, wxT("Categorias..."), wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
+	m_BoxCategoriaAdmin->Append( wxT("Nombre") );
+	m_BoxCategoriaAdmin->Append( wxT("Categoria") );
+	m_BoxCategoriaAdmin->Append( wxT("Precio") );
+	m_BoxCategoriaAdmin->Append( wxT("Stock") );
+	m_BoxCategoriaAdmin->Append( wxEmptyString );
+	m_BoxCategoriaAdmin->SetSelection( 1 );
+	bSizer144->Add( m_BoxCategoriaAdmin, 0, wxALL, 5 );
+
+
+	bSizer140->Add( bSizer144, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer145;
+	bSizer145 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText98 = new wxStaticText( this, wxID_ANY, wxT("Precio:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText98->Wrap( -1 );
+	bSizer145->Add( m_staticText98, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	m_TextPrecioAdmin = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer145->Add( m_TextPrecioAdmin, 0, wxALL, 5 );
+
+
+	bSizer140->Add( bSizer145, 0, wxEXPAND, 5 );
+
+	wxBoxSizer* bSizer146;
+	bSizer146 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText99 = new wxStaticText( this, wxID_ANY, wxT("Stock:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText99->Wrap( -1 );
+	bSizer146->Add( m_staticText99, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	m_TextStockAdmin = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer146->Add( m_TextStockAdmin, 0, wxALL, 5 );
+
+
+	bSizer140->Add( bSizer146, 0, wxEXPAND, 5 );
+
+
+	bSizer134->Add( bSizer140, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer147;
+	bSizer147 = new wxBoxSizer( wxVERTICAL );
+
+	m_BotonGuardarAdmin = new wxButton( this, wxID_ANY, wxT("Guardar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer147->Add( m_BotonGuardarAdmin, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer134->Add( bSizer147, 1, wxEXPAND, 5 );
+
+
+	this->SetSizer( bSizer134 );
+	this->Layout();
+
+	this->Centre( wxBOTH );
+}
+
+BaseEditarProducto::~BaseEditarProducto()
 {
 }

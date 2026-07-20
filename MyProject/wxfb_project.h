@@ -381,7 +381,7 @@ class BaseMenuAdmin : public wxFrame
 		wxButton* m_BotonAggProdAdmin;
 		wxButton* m_BotonVerListProdAdmin;
 		wxButton* m_BotonEliminarCategoriaAdmin;
-		wxButton* m_BotonEditarCategoriaAdmin;
+		wxButton* m_BotonEditarProductoAdmin;
 		wxButton* m_BotonMenuPrincipalAdmin;
 
 	public:
@@ -541,6 +541,34 @@ class BaseEliminarCategoriaAdmin : public wxFrame
 		BaseEliminarCategoriaAdmin( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseEliminarCategoriaAdmin();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class BaseEditarProducto
+///////////////////////////////////////////////////////////////////////////////
+class BaseEditarProducto : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* m_staticText92;
+		wxGrid* m_TablaAggProductoAdmin;
+		wxStaticText* m_staticText93;
+		wxTextCtrl* m_TextNomAdmin;
+		wxStaticText* m_staticText97;
+		wxComboBox* m_BoxCategoriaAdmin;
+		wxStaticText* m_staticText98;
+		wxTextCtrl* m_TextPrecioAdmin;
+		wxStaticText* m_staticText99;
+		wxTextCtrl* m_TextStockAdmin;
+		wxButton* m_BotonGuardarAdmin;
+
+	public:
+
+		BaseEditarProducto( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,297 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~BaseEditarProducto();
 
 };
 
