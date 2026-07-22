@@ -1,12 +1,12 @@
 #include <wx/image.h>
 #include "Application.h"
-#include "HijaEditarProducto.h"
+#include "HijaPrincipal.h"
 
 IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {
 	wxInitAllImageHandlers();
-	HijaEditarProducto *win = new HijaEditarProducto(NULL);
+	HijaPrincipal *win = new HijaPrincipal(NULL);
 	win->Show();
 	return true;
 }

@@ -41,6 +41,11 @@ class BasePrincipal : public wxFrame
 		wxButton* m_venta;
 		wxButton* m_admin;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonVendedor( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonAdministrador( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
 		BasePrincipal( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Principal"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
@@ -66,6 +71,11 @@ class BaseMenuPrincipalVend : public wxFrame
 		wxButton* m_BotonBuscarVend;
 		wxGrid* m_TablaClientesVend;
 		wxButton* m_BotonVolverVend;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonAggClienteVend( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonVenderVend( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
