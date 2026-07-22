@@ -171,6 +171,9 @@ BaseMenuPrincipalVend::BaseMenuPrincipalVend( wxWindow* parent, wxWindowID id, c
 	// Connect Events
 	m_BotonAggClienteVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonAggClienteVend ), NULL, this );
 	m_BotonVenderVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonVenderVend ), NULL, this );
+	m_BotonVerstockVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonStockVend ), NULL, this );
+	m_botonModfDatosClientes->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonModifClienteVend ), NULL, this );
+	m_BotonVolverVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonVolverVend ), NULL, this );
 }
 
 BaseMenuPrincipalVend::~BaseMenuPrincipalVend()
@@ -178,6 +181,9 @@ BaseMenuPrincipalVend::~BaseMenuPrincipalVend()
 	// Disconnect Events
 	m_BotonAggClienteVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonAggClienteVend ), NULL, this );
 	m_BotonVenderVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonVenderVend ), NULL, this );
+	m_BotonVerstockVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonStockVend ), NULL, this );
+	m_botonModfDatosClientes->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonModifClienteVend ), NULL, this );
+	m_BotonVolverVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonVolverVend ), NULL, this );
 
 }
 
@@ -250,10 +256,16 @@ BaseStockVend::BaseStockVend( wxWindow* parent, wxWindowID id, const wxString& t
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_BotonVolverStockVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseStockVend::ClickBotonVolverStockVend ), NULL, this );
 }
 
 BaseStockVend::~BaseStockVend()
 {
+	// Disconnect Events
+	m_BotonVolverStockVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseStockVend::ClickBotonVolverStockVend ), NULL, this );
+
 }
 
 BaseAggClienteVend::BaseAggClienteVend( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )

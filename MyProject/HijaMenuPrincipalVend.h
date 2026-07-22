@@ -7,6 +7,9 @@ class HijaMenuPrincipalVend : public BaseMenuPrincipalVend {
 private:
 	
 protected:
+	void ClickBotonVolverVend( wxCommandEvent& event )  override;
+	void ClickBotonStockVend( wxCommandEvent& event )  override;
+	void ClickBotonModifClienteVend( wxCommandEvent& event )  override;
 	void ClickBotonVenderVend( wxCommandEvent& event )  override;
 	void ClickBotonAggClienteVend( wxCommandEvent& event )  override;
 	

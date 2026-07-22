@@ -75,6 +75,9 @@ class BaseMenuPrincipalVend : public wxFrame
 		// Virtual event handlers, override them in your derived class
 		virtual void ClickBotonAggClienteVend( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonVenderVend( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonStockVend( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonModifClienteVend( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonVolverVend( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
@@ -96,6 +99,10 @@ class BaseStockVend : public wxFrame
 		wxStaticText* m_staticText3;
 		wxGrid* m_TablaStockVend;
 		wxButton* m_BotonVolverStockVend;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonVolverStockVend( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 

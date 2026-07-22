@@ -7,6 +7,7 @@ class HijaStockVend : public BaseStockVend {
 private:
 	
 protected:
+	void ClickBotonVolverStockVend( wxCommandEvent& event )  override;
 	
 public:
 	HijaStockVend(wxWindow *parent=NULL);
