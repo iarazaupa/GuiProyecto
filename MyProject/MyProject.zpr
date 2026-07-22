@@ -16,7 +16,7 @@ tab_use_spaces=0
 explorer_path=.
 inspection_improving_template=wxString|>printf "%ls",${EXP}.m_impl._M_data()
 inherits_from=
-current_source=HijaMenuPrincipalVend.cpp
+current_source=Application.cpp
 path_char=\
 [source]
 path=Application.cpp
@@ -48,7 +48,7 @@ cursor=3:1
 open=true
 [source]
 path=HijaMenuVentaVend.cpp
-cursor=0:0
+cursor=0:27
 open=true
 [source]
 path=HijaMVAggProductoVend.cpp

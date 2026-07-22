@@ -387,6 +387,15 @@ BaseVentaVend::BaseVentaVend( wxWindow* parent, wxWindowID id, const wxString& t
 
 	bSizer23->Add( bSizer25, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
+	wxBoxSizer* bSizer143;
+	bSizer143 = new wxBoxSizer( wxVERTICAL );
+
+	m_BotonBuscarVentaVend = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer143->Add( m_BotonBuscarVentaVend, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+
+	bSizer23->Add( bSizer143, 1, wxEXPAND, 5 );
+
 
 	this->SetSizer( bSizer23 );
 	this->Layout();

@@ -143,10 +143,11 @@ class BaseVentaVend : public wxFrame
 		wxStaticText* m_staticText9;
 		wxStaticText* m_staticText10;
 		wxTextCtrl* m_TextoVentaVend;
+		wxButton* m_BotonBuscarVentaVend;
 
 	public:
 
-		BaseVentaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Vendedor - Venta"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseVentaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Vendedor - Venta"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 398,147 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseVentaVend();
 
