@@ -37,7 +37,7 @@ cursor=0:31
 open=true
 [source]
 path=HijaStockVend.cpp
-cursor=13:15
+cursor=4:54
 open=true
 [source]
 path=HijaAggClienteVend.cpp
