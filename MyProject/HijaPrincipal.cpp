@@ -1,8 +1,9 @@
 #include "HijaPrincipal.h"
 #include "HijaMenuPrincipalVend.h"
 #include "HijaAdministradorContrasenia.h"
+#include "Sistema.h"
 
-HijaPrincipal::HijaPrincipal(wxWindow *parent) : BasePrincipal(parent) {
+HijaPrincipal::HijaPrincipal(Sistema *sistema) : BasePrincipal(nullptr), m_sistema(sistema){
 	
 }
 
@@ -18,7 +19,7 @@ void HijaPrincipal::ClickBotonVendedor( wxCommandEvent& event )  {
 }
 
 void HijaPrincipal::ClickBotonAdministrador( wxCommandEvent& event )  {
-	HijaAdministradorContrasenia *win = new HijaAdministradorContrasenia(this);
+	HijaAdministradorContrasenia *win = new HijaAdministradorContrasenia(m_sistema);
 	win->Show();
 
 }

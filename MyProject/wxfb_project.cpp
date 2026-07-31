@@ -1291,10 +1291,16 @@ BaseAdministradorContrasenia::BaseAdministradorContrasenia( wxWindow* parent, wx
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_botonIngresarAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseAdministradorContrasenia::ClickBotonIngresar ), NULL, this );
 }
 
 BaseAdministradorContrasenia::~BaseAdministradorContrasenia()
 {
+	// Disconnect Events
+	m_botonIngresarAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseAdministradorContrasenia::ClickBotonIngresar ), NULL, this );
+
 }
 
 BaseMenuAdmin::BaseMenuAdmin( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )

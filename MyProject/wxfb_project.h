@@ -371,6 +371,10 @@ class BaseAdministradorContrasenia : public wxDialog
 		wxTextCtrl* m_textIngreseContraseniaAdmin;
 		wxButton* m_botonIngresarAdmin;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonIngresar( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
 		BaseAdministradorContrasenia( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 218,311 ), long style = wxDEFAULT_DIALOG_STYLE );
