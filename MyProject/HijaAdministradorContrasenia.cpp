@@ -20,7 +20,7 @@ void HijaAdministradorContrasenia::ClickBotonIngresar( wxCommandEvent& event )  
 	
 	if (m_sistema->verificarPassword(password))
 	{
-		HijaMenuAdmin *win = new HijaMenuAdmin(nullptr);
+		HijaMenuAdmin *win = new HijaMenuAdmin(m_sistema);
 		win->Show();
 		wxMessageBox("Contraseña correcta");
 		this->Hide();
