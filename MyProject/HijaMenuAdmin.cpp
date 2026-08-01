@@ -1,6 +1,8 @@
 #include "HijaMenuAdmin.h"
 #include "Producto.h"
 #include <wx/string.h>
+#include "HijaAggClienteAdmin.h"
+#include "HijaListClienteAdmin.h"
 
 HijaMenuAdmin::HijaMenuAdmin(Sistema *sistema)
 	: BaseMenuAdmin(nullptr), m_sistema(sistema)
@@ -21,5 +23,15 @@ HijaMenuAdmin::HijaMenuAdmin(Sistema *sistema)
 
 HijaMenuAdmin::~HijaMenuAdmin() {
 	
+}
+
+void HijaMenuAdmin::ClickBotonAgregarCliente( wxCommandEvent& event )  {
+	HijaAggClienteAdmin *win = new HijaAggClienteAdmin(m_sistema);
+	win->Show();
+}
+
+void HijaMenuAdmin::ClickBotonVerListaClientes( wxCommandEvent& event )  {
+	HijaListClienteAdmin *win = new HijaListClienteAdmin(m_sistema);
+	win->Show();
 }
 

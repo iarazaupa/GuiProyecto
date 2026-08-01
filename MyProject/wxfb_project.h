@@ -406,6 +406,11 @@ class BaseMenuAdmin : public wxFrame
 		wxButton* m_BotonEditarProductoAdmin;
 		wxButton* m_BotonMenuPrincipalAdmin;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonAgregarCliente( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonVerListaClientes( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
 		BaseMenuAdmin( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 586,328 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );

@@ -1,6 +1,7 @@
 #include "HijaAggClienteAdmin.h"
+#include "Sistema.h"
 
-HijaAggClienteAdmin::HijaAggClienteAdmin(wxWindow *parent) : BaseAggClienteAdmin(parent) {
+HijaAggClienteAdmin::HijaAggClienteAdmin(Sistema *sistema) : BaseAggClienteAdmin(nullptr), m_sistema(sistema) {
 	
 }
 

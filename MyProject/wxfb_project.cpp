@@ -1471,10 +1471,18 @@ BaseMenuAdmin::BaseMenuAdmin( wxWindow* parent, wxWindowID id, const wxString& t
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_BotonAggClienteAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonAgregarCliente ), NULL, this );
+	m_BotonVerListClienteAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonVerListaClientes ), NULL, this );
 }
 
 BaseMenuAdmin::~BaseMenuAdmin()
 {
+	// Disconnect Events
+	m_BotonAggClienteAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonAgregarCliente ), NULL, this );
+	m_BotonVerListClienteAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonVerListaClientes ), NULL, this );
+
 }
 
 BaseAggClienteAdmin::BaseAggClienteAdmin( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
@@ -1921,7 +1929,7 @@ BaseListClienteAdmin::BaseListClienteAdmin( wxWindow* parent, wxWindowID id, con
 	m_GridListClienteAdmin = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_GridListClienteAdmin->CreateGrid( 5, 3 );
+	m_GridListClienteAdmin->CreateGrid( 0, 3 );
 	m_GridListClienteAdmin->EnableEditing( true );
 	m_GridListClienteAdmin->EnableGridLines( true );
 	m_GridListClienteAdmin->EnableDragGridSize( false );

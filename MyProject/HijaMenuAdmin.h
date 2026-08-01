@@ -9,6 +9,8 @@ private:
 	Sistema *m_sistema;
 	vector<Producto> m_stockBajo;
 protected:
+	void ClickBotonVerListaClientes( wxCommandEvent& event )  override;
+	void ClickBotonAgregarCliente( wxCommandEvent& event )  override;
 	
 public:
 	HijaMenuAdmin(Sistema *Sistema);
