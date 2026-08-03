@@ -360,10 +360,16 @@ BaseAggClienteVend::BaseAggClienteVend( wxWindow* parent, wxWindowID id, const w
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_BotonAgregarAggClienteVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseAggClienteVend::ClickBtnAggClienteVend ), NULL, this );
 }
 
 BaseAggClienteVend::~BaseAggClienteVend()
 {
+	// Disconnect Events
+	m_BotonAgregarAggClienteVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseAggClienteVend::ClickBtnAggClienteVend ), NULL, this );
+
 }
 
 BaseVentaVend::BaseVentaVend( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
@@ -1577,10 +1583,16 @@ BaseAggClienteAdmin::BaseAggClienteAdmin( wxWindow* parent, wxWindowID id, const
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_BotonAgregarAggClienteAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseAggClienteAdmin::ClickBtnAggClienteAdmin ), NULL, this );
 }
 
 BaseAggClienteAdmin::~BaseAggClienteAdmin()
 {
+	// Disconnect Events
+	m_BotonAgregarAggClienteAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseAggClienteAdmin::ClickBtnAggClienteAdmin ), NULL, this );
+
 }
 
 BaseAggProductoAdmin::BaseAggProductoAdmin( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )

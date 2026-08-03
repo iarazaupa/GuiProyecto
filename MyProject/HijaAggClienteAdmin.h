@@ -8,6 +8,7 @@ class HijaAggClienteAdmin : public BaseAggClienteAdmin {
 private:
 	Sistema *m_sistema;
 protected:
+	void ClickBtnAggClienteAdmin( wxCommandEvent& event )  override;
 	
 public:
 	HijaAggClienteAdmin(Sistema *sistema);

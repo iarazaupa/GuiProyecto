@@ -131,6 +131,10 @@ class BaseAggClienteVend : public wxFrame
 		wxTextCtrl* m_textTelAggClienteVend;
 		wxButton* m_BotonAgregarAggClienteVend;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBtnAggClienteVend( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
 		BaseAggClienteVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Vendedor - Agregar Cliente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
@@ -437,6 +441,10 @@ class BaseAggClienteAdmin : public wxFrame
 		wxStaticText* m_staticText8;
 		wxTextCtrl* m_textTelAggClienteAdmin;
 		wxButton* m_BotonAgregarAggClienteAdmin;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBtnAggClienteAdmin( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
