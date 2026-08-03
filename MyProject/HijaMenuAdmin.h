@@ -9,6 +9,7 @@ private:
 	Sistema *m_sistema;
 	vector<Producto> m_stockBajo;
 protected:
+	void ClickBotonEditarProducto( wxCommandEvent& event )  override;
 	void ClickBotonVerListaClientes( wxCommandEvent& event )  override;
 	void ClickBotonAgregarCliente( wxCommandEvent& event )  override;
 	

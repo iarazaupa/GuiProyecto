@@ -3,6 +3,8 @@
 #include <wx/string.h>
 #include "HijaAggClienteAdmin.h"
 #include "HijaListClienteAdmin.h"
+#include "wxfb_project.h"
+#include "HijaEditarProducto.h"
 
 HijaMenuAdmin::HijaMenuAdmin(Sistema *sistema)
 	: BaseMenuAdmin(nullptr), m_sistema(sistema)
@@ -32,6 +34,11 @@ void HijaMenuAdmin::ClickBotonAgregarCliente( wxCommandEvent& event )  {
 
 void HijaMenuAdmin::ClickBotonVerListaClientes( wxCommandEvent& event )  {
 	HijaListClienteAdmin *win = new HijaListClienteAdmin(m_sistema);
+	win->Show();
+}
+
+void HijaMenuAdmin::ClickBotonEditarProducto( wxCommandEvent& event )  {
+	HijaEditarProducto *win = new HijaEditarProducto(m_sistema);
 	win->Show();
 }
 
