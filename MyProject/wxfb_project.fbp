@@ -9530,6 +9530,7 @@
                     <property name="window_extra_style"></property>
                     <property name="window_name"></property>
                     <property name="window_style"></property>
+                    <event name="OnButtonClick">ClickBotonAggProducto</event>
                   </object>
                 </object>
                 <object class="sizeritem" expanded="false">
@@ -9604,6 +9605,7 @@
                     <property name="window_extra_style"></property>
                     <property name="window_name"></property>
                     <property name="window_style"></property>
+                    <event name="OnButtonClick">ClickBotonListaProductos</event>
                   </object>
                 </object>
                 <object class="sizeritem" expanded="false">
@@ -11441,6 +11443,7 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
+                <event name="OnButtonClick">ClickBotonAgg</event>
               </object>
             </object>
           </object>
@@ -11935,7 +11938,7 @@
                 <property name="row_label_values"></property>
                 <property name="row_label_vert_alignment">wxALIGN_CENTER</property>
                 <property name="row_sizes"></property>
-                <property name="rows">5</property>
+                <property name="rows">0</property>
                 <property name="show">1</property>
                 <property name="size"></property>
                 <property name="subclass">; ; forward_declare</property>

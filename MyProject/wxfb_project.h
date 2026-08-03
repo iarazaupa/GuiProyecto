@@ -409,6 +409,8 @@ class BaseMenuAdmin : public wxFrame
 		// Virtual event handlers, override them in your derived class
 		virtual void ClickBotonAgregarCliente( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonVerListaClientes( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonAggProducto( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonListaProductos( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
@@ -465,6 +467,10 @@ class BaseAggProductoAdmin : public wxFrame
 		wxStaticText* m_staticText8;
 		wxTextCtrl* m_TextStockAdmin;
 		wxButton* m_BotonAggAdmin;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonAgg( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 

@@ -1475,6 +1475,8 @@ BaseMenuAdmin::BaseMenuAdmin( wxWindow* parent, wxWindowID id, const wxString& t
 	// Connect Events
 	m_BotonAggClienteAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonAgregarCliente ), NULL, this );
 	m_BotonVerListClienteAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonVerListaClientes ), NULL, this );
+	m_BotonAggProdAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonAggProducto ), NULL, this );
+	m_BotonVerListProdAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonListaProductos ), NULL, this );
 }
 
 BaseMenuAdmin::~BaseMenuAdmin()
@@ -1482,6 +1484,8 @@ BaseMenuAdmin::~BaseMenuAdmin()
 	// Disconnect Events
 	m_BotonAggClienteAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonAgregarCliente ), NULL, this );
 	m_BotonVerListClienteAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonVerListaClientes ), NULL, this );
+	m_BotonAggProdAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonAggProducto ), NULL, this );
+	m_BotonVerListProdAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonListaProductos ), NULL, this );
 
 }
 
@@ -1692,10 +1696,16 @@ BaseAggProductoAdmin::BaseAggProductoAdmin( wxWindow* parent, wxWindowID id, con
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_BotonAggAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseAggProductoAdmin::ClickBotonAgg ), NULL, this );
 }
 
 BaseAggProductoAdmin::~BaseAggProductoAdmin()
 {
+	// Disconnect Events
+	m_BotonAggAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseAggProductoAdmin::ClickBotonAgg ), NULL, this );
+
 }
 
 BaseQuitarProductoAdmin::BaseQuitarProductoAdmin( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
@@ -1796,7 +1806,7 @@ BaseListProdAdmin::BaseListProdAdmin( wxWindow* parent, wxWindowID id, const wxS
 	m_GridListProdAdmin = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_GridListProdAdmin->CreateGrid( 5, 5 );
+	m_GridListProdAdmin->CreateGrid( 0, 5 );
 	m_GridListProdAdmin->EnableEditing( true );
 	m_GridListProdAdmin->EnableGridLines( true );
 	m_GridListProdAdmin->EnableDragGridSize( false );
