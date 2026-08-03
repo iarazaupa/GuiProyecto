@@ -5,6 +5,11 @@ HijaListClienteAdmin::HijaListClienteAdmin(Sistema *sistema) : BaseListClienteAd
 	vector<Cliente> clientes;
 	bool seLleno = m_sistema->ListarClientes(clientes);
 	
+	if (m_GridListClienteAdmin->GetNumberRows() > 0)
+	{
+		m_GridListClienteAdmin->DeleteRows(0, m_GridListClienteAdmin->GetNumberRows());
+	}
+	
 	for (int i = 0; i < clientes.size(); i++)
 	{
 		Cliente c = clientes[i];
