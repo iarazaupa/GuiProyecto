@@ -5,6 +5,7 @@
 #include "HijaListClienteAdmin.h"
 #include "HijaAggProductoAdmin.h"
 #include "HijaListProdAdmin.h"
+#include "HijaPrincipal.h"
 
 HijaMenuAdmin::HijaMenuAdmin(Sistema *sistema)
 	: BaseMenuAdmin(nullptr), m_sistema(sistema)
@@ -21,6 +22,33 @@ HijaMenuAdmin::HijaMenuAdmin(Sistema *sistema)
 		m_gridProductoStockBajo->SetCellValue(i, 2, wxString::Format("%.2f", p.GetPrecio()));
 		m_gridProductoStockBajo->SetCellValue(i, 3, wxString::Format("%d", p.GetStock()));
 	}
+	
+	
+	int contadorMeses[12] = {0};
+	double totalDineroMeses[12] = {0};
+	
+	m_sistema->cantidadVentasMes(contadorMeses, totalDineroMeses);
+	
+	const string nombreMeses[12] = {
+		"Enero","Febrero","Marzo","Abril",
+			"Mayo","Junio","Julio","Agosto",
+			"Septiembre","Octubre","Noviembre","Diciembre"
+	};
+	
+	for (int i = 0; i < 12; i++)
+	{
+		if (contadorMeses[i] > 0)
+		{
+			int fila = m_gridVentasDelMes->GetNumberRows();
+			
+			m_gridVentasDelMes->AppendRows(1);
+			
+			m_gridVentasDelMes->SetCellValue(fila, 0, wxString::Format("%d", fila + 1));
+			m_gridVentasDelMes->SetCellValue(fila, 1, nombreMeses[i]);
+			m_gridVentasDelMes->SetCellValue(fila, 2, wxString::Format("%.2f", totalDineroMeses[i]));
+		}
+	}
+	
 }
 
 HijaMenuAdmin::~HijaMenuAdmin() {
@@ -45,5 +73,15 @@ void HijaMenuAdmin::ClickBotonAggProducto( wxCommandEvent& event )  {
 void HijaMenuAdmin::ClickBotonListaProductos( wxCommandEvent& event )  {
 	HijaListProdAdmin *win = new HijaListProdAdmin(m_sistema);
 	win->Show();
+}
+
+void HijaMenuAdmin::ClickBotonEditarProducto( wxCommandEvent& event )  {
+	event.Skip();
+}
+
+void HijaMenuAdmin::ClickBtnMenuPrin( wxCommandEvent& event )  {
+	HijaPrincipal *win = new HijaPrincipal(m_sistema);
+	win->Show();
+	this->Close();
 }
 

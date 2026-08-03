@@ -8709,7 +8709,7 @@
       <property name="minimum_size"></property>
       <property name="name">BaseMenuAdmin</property>
       <property name="pos"></property>
-      <property name="size">586,328</property>
+      <property name="size">586,407</property>
       <property name="style">wxDEFAULT_FRAME_STYLE</property>
       <property name="subclass">; ; forward_declare</property>
       <property name="title"></property>
@@ -8955,7 +8955,7 @@
                     <property name="row_label_values"></property>
                     <property name="row_label_vert_alignment">wxALIGN_CENTER</property>
                     <property name="row_sizes"></property>
-                    <property name="rows">5</property>
+                    <property name="rows">0</property>
                     <property name="show">1</property>
                     <property name="size"></property>
                     <property name="subclass">; ; forward_declare</property>
@@ -9843,6 +9843,7 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
+                <event name="OnButtonClick">ClickBtnMenuPrin</event>
               </object>
             </object>
           </object>

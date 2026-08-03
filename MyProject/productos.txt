@@ -4,3 +4,4 @@
 1;Calabazin;calabaza;1;1
 1;awawa;Mate Algarrobo;1;1
 43437;awawini;algarrobo;76543;2
+1;Mate Acero c/ Bombilla;interior Acero;7000;10

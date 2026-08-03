@@ -360,10 +360,16 @@ BaseAggClienteVend::BaseAggClienteVend( wxWindow* parent, wxWindowID id, const w
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_BotonAgregarAggClienteVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseAggClienteVend::ClickBtnAggClienteVend ), NULL, this );
 }
 
 BaseAggClienteVend::~BaseAggClienteVend()
 {
+	// Disconnect Events
+	m_BotonAgregarAggClienteVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseAggClienteVend::ClickBtnAggClienteVend ), NULL, this );
+
 }
 
 BaseVentaVend::BaseVentaVend( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
@@ -1338,7 +1344,7 @@ BaseMenuAdmin::BaseMenuAdmin( wxWindow* parent, wxWindowID id, const wxString& t
 	m_gridVentasDelMes = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_gridVentasDelMes->CreateGrid( 5, 3 );
+	m_gridVentasDelMes->CreateGrid( 0, 3 );
 	m_gridVentasDelMes->EnableEditing( true );
 	m_gridVentasDelMes->EnableGridLines( true );
 	m_gridVentasDelMes->EnableDragGridSize( false );
@@ -1477,6 +1483,8 @@ BaseMenuAdmin::BaseMenuAdmin( wxWindow* parent, wxWindowID id, const wxString& t
 	m_BotonVerListClienteAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonVerListaClientes ), NULL, this );
 	m_BotonAggProdAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonAggProducto ), NULL, this );
 	m_BotonVerListProdAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonListaProductos ), NULL, this );
+	m_BotonEditarProductoAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonEditarProducto ), NULL, this );
+	m_BotonMenuPrincipalAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBtnMenuPrin ), NULL, this );
 }
 
 BaseMenuAdmin::~BaseMenuAdmin()
@@ -1486,6 +1494,8 @@ BaseMenuAdmin::~BaseMenuAdmin()
 	m_BotonVerListClienteAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonVerListaClientes ), NULL, this );
 	m_BotonAggProdAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonAggProducto ), NULL, this );
 	m_BotonVerListProdAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonListaProductos ), NULL, this );
+	m_BotonEditarProductoAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonEditarProducto ), NULL, this );
+	m_BotonMenuPrincipalAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBtnMenuPrin ), NULL, this );
 
 }
 
@@ -1581,10 +1591,16 @@ BaseAggClienteAdmin::BaseAggClienteAdmin( wxWindow* parent, wxWindowID id, const
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_BotonAgregarAggClienteAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseAggClienteAdmin::ClickBtnAggClienteAdmin ), NULL, this );
 }
 
 BaseAggClienteAdmin::~BaseAggClienteAdmin()
 {
+	// Disconnect Events
+	m_BotonAgregarAggClienteAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseAggClienteAdmin::ClickBtnAggClienteAdmin ), NULL, this );
+
 }
 
 BaseAggProductoAdmin::BaseAggProductoAdmin( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
@@ -2159,8 +2175,16 @@ BaseEditarProducto::BaseEditarProducto( wxWindow* parent, wxWindowID id, const w
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_TablaAggProductoAdmin->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( BaseEditarProducto::ClickEnFila ), NULL, this );
+	m_BotonGuardarAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseEditarProducto::ClickBotonGuardar ), NULL, this );
 }
 
 BaseEditarProducto::~BaseEditarProducto()
 {
+	// Disconnect Events
+	m_TablaAggProductoAdmin->Disconnect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( BaseEditarProducto::ClickEnFila ), NULL, this );
+	m_BotonGuardarAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseEditarProducto::ClickBotonGuardar ), NULL, this );
+
 }

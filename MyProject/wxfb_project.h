@@ -131,6 +131,10 @@ class BaseAggClienteVend : public wxFrame
 		wxTextCtrl* m_textTelAggClienteVend;
 		wxButton* m_BotonAgregarAggClienteVend;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBtnAggClienteVend( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
 		BaseAggClienteVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Vendedor - Agregar Cliente"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
@@ -411,11 +415,13 @@ class BaseMenuAdmin : public wxFrame
 		virtual void ClickBotonVerListaClientes( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonAggProducto( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonListaProductos( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonEditarProducto( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBtnMenuPrin( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
 
-		BaseMenuAdmin( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 586,328 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseMenuAdmin( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 586,407 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~BaseMenuAdmin();
 
@@ -439,6 +445,10 @@ class BaseAggClienteAdmin : public wxFrame
 		wxStaticText* m_staticText8;
 		wxTextCtrl* m_textTelAggClienteAdmin;
 		wxButton* m_BotonAgregarAggClienteAdmin;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBtnAggClienteAdmin( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
@@ -596,6 +606,11 @@ class BaseEditarProducto : public wxFrame
 		wxStaticText* m_staticText99;
 		wxTextCtrl* m_TextStockAdmin;
 		wxButton* m_BotonGuardarAdmin;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickEnFila( wxGridEvent& event ) { event.Skip(); }
+		virtual void ClickBotonGuardar( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 

@@ -4,8 +4,10 @@
 
 
 
-HijaAdministradorContrasenia::HijaAdministradorContrasenia(Sistema *sistema) : BaseAdministradorContrasenia(nullptr), m_sistema(sistema){
-	
+HijaAdministradorContrasenia::HijaAdministradorContrasenia(Sistema *sistema)
+	: BaseAdministradorContrasenia(nullptr), m_sistema(sistema)
+{
+	m_botonIngresarAdmin->SetDefault();
 }
 
 
