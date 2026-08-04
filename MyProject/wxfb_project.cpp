@@ -213,7 +213,7 @@ BaseStockVend::BaseStockVend( wxWindow* parent, wxWindowID id, const wxString& t
 	m_TablaStockVend = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_TablaStockVend->CreateGrid( 5, 5 );
+	m_TablaStockVend->CreateGrid( 0, 5 );
 	m_TablaStockVend->EnableEditing( true );
 	m_TablaStockVend->EnableGridLines( true );
 	m_TablaStockVend->EnableDragGridSize( false );

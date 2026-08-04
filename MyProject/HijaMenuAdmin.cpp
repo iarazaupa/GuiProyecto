@@ -11,6 +11,7 @@
 HijaMenuAdmin::HijaMenuAdmin(Sistema *sistema)
 	: BaseMenuAdmin(nullptr), m_sistema(sistema)
 {
+	//Grilla de Stock Bajo
 	vector<Producto> GrillaStockBajo = m_sistema->StockBajo();
 	
 	for (int i = 0; i < GrillaStockBajo.size(); i++)
@@ -24,7 +25,7 @@ HijaMenuAdmin::HijaMenuAdmin(Sistema *sistema)
 		m_gridProductoStockBajo->SetCellValue(i, 3, wxString::Format("%d", p.GetStock()));
 	}
 	
-	
+	//Grilla de Ventas del Mes
 	int contadorMeses[12] = {0};
 	double totalDineroMeses[12] = {0};
 	
