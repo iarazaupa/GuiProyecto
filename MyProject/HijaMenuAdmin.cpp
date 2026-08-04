@@ -6,6 +6,7 @@
 #include "HijaAggProductoAdmin.h"
 #include "HijaListProdAdmin.h"
 #include "HijaPrincipal.h"
+#include "HijaEditarProducto.h"
 
 HijaMenuAdmin::HijaMenuAdmin(Sistema *sistema)
 	: BaseMenuAdmin(nullptr), m_sistema(sistema)
@@ -76,7 +77,8 @@ void HijaMenuAdmin::ClickBotonListaProductos( wxCommandEvent& event )  {
 }
 
 void HijaMenuAdmin::ClickBotonEditarProducto( wxCommandEvent& event )  {
-	event.Skip();
+	HijaEditarProducto *win = new HijaEditarProducto(m_sistema);
+	win->Show();
 }
 
 void HijaMenuAdmin::ClickBtnMenuPrin( wxCommandEvent& event )  {

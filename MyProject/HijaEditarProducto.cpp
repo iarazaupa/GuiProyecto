@@ -66,7 +66,7 @@ void HijaEditarProducto::ClickBotonGuardar(wxCommandEvent& event)
 	double precio = wxAtof(m_TextPrecioAdmin->GetValue());
 	int stock = wxAtoi(m_TextStockAdmin->GetValue());
 	
-	// Como no editás la categoría, la dejamos vacía por ahora
+	// Como no edit?s la categor?a, la dejamos vac?a por ahora
 	Producto producto(
 					  m_idProductoSeleccionado,
 					  nombre,
@@ -92,4 +92,3 @@ void HijaEditarProducto::ClickBotonGuardar(wxCommandEvent& event)
 		wxMessageBox("No se pudo editar el producto.");
 	}
 }
-

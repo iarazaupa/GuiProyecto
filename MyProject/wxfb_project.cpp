@@ -1386,7 +1386,7 @@ BaseMenuAdmin::BaseMenuAdmin( wxWindow* parent, wxWindowID id, const wxString& t
 	m_gridProductoStockBajo = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_gridProductoStockBajo->CreateGrid( 5, 4 );
+	m_gridProductoStockBajo->CreateGrid( 0, 4 );
 	m_gridProductoStockBajo->EnableEditing( true );
 	m_gridProductoStockBajo->EnableGridLines( true );
 	m_gridProductoStockBajo->EnableDragGridSize( false );
