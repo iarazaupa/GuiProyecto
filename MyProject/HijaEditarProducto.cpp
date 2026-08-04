@@ -25,13 +25,37 @@ void HijaEditarProducto::CargarTabla()
 		cout << "Fila: " << i << endl;
 		m_TablaAggProductoAdmin->SetCellValue(i, 0, wxString::Format("%d", productos[i].GetID()));
 		m_TablaAggProductoAdmin->SetCellValue(i, 1, wxString(productos[i].GetNombre()));
-		m_TablaAggProductoAdmin->SetCellValue(i, 2, wxString::Format("%.2f", productos[i].GetPrecio()));
-		m_TablaAggProductoAdmin->SetCellValue(i, 3, wxString::Format("%d", productos[i].GetStock()));
+		
+		if (m_TablaAggProductoAdmin->GetNumberCols() > 2)
+			m_TablaAggProductoAdmin->SetCellValue(i, 2, wxString(productos[i].GetCategoria()));
+		
+		if (m_TablaAggProductoAdmin->GetNumberCols() > 3)
+			m_TablaAggProductoAdmin->SetCellValue(i, 3, wxString::Format("%.2f", productos[i].GetPrecio()));
+		
+		if (m_TablaAggProductoAdmin->GetNumberCols() > 4)
+			m_TablaAggProductoAdmin->SetCellValue(i, 4, wxString::Format("%d", productos[i].GetStock()));
+	}
+}
+
+
+void HijaEditarProducto::CargarCategorias()
+{
+	m_BoxCategoriaAdmin->Clear();
+	
+	vector<string> categorias = m_sistema->ObtenerCategorias();
+	
+	cout << "Cantidad categorias: " << categorias.size() << endl;
+	
+	for (string categoria : categorias)
+	{
+		cout << "Cargando categoria: " << categoria << endl;
+		m_BoxCategoriaAdmin->Append(categoria);
 	}
 }
 
 HijaEditarProducto::HijaEditarProducto(Sistema *sistema): BaseEditarProducto(nullptr), m_sistema(sistema)
 {
+	CargarCategorias();
 	CargarTabla();
 }
 
@@ -41,9 +65,16 @@ HijaEditarProducto::~HijaEditarProducto() {
 	
 }
 
+
+
+
+
 void HijaEditarProducto::ClickEnFila(wxGridEvent& event)
 {
 	int fila = event.GetRow();
+	
+	if (fila < 0 || fila >= m_TablaAggProductoAdmin->GetNumberRows())
+		return;
 	
 	m_idProductoSeleccionado = wxAtoi(
 									  m_TablaAggProductoAdmin->GetCellValue(fila, 0));
@@ -51,26 +82,64 @@ void HijaEditarProducto::ClickEnFila(wxGridEvent& event)
 	m_TextNomAdmin->SetValue(
 							 m_TablaAggProductoAdmin->GetCellValue(fila, 1));
 	
-	m_TextPrecioAdmin->SetValue(
-								m_TablaAggProductoAdmin->GetCellValue(fila, 2));
+	// Categoría (solo si existe la columna)
+	// Categoría
+	if (m_TablaAggProductoAdmin->GetNumberCols() > 2)
+	{
+		wxString categoria = m_TablaAggProductoAdmin->GetCellValue(fila, 2);
+		
+		cout << "Categoria seleccionada: " 
+			<< categoria.ToStdString() 
+			<< endl;
+		
+		int indice = m_BoxCategoriaAdmin->FindString(categoria);
+		
+		if (indice != wxNOT_FOUND)
+		{
+			// Si la categoría ya existe, la selecciona
+			m_BoxCategoriaAdmin->SetSelection(indice);
+		}
+		else
+		{
+			// Si no existe, la agrega y la selecciona
+			m_BoxCategoriaAdmin->Append(categoria);
+			m_BoxCategoriaAdmin->SetSelection(m_BoxCategoriaAdmin->GetCount() - 1);
+		}	
+	}
+	else
+	{
+		m_BoxCategoriaAdmin->SetSelection(wxNOT_FOUND);
+	}
 	
-	m_TextStockAdmin->SetValue(
-							   m_TablaAggProductoAdmin->GetCellValue(fila, 3));
+	// Precio
+	if (m_TablaAggProductoAdmin->GetNumberCols() > 3)
+		m_TextPrecioAdmin->SetValue(
+									m_TablaAggProductoAdmin->GetCellValue(fila, 3));
+	else
+		m_TextPrecioAdmin->Clear();
+	
+	// Stock
+	if (m_TablaAggProductoAdmin->GetNumberCols() > 4)
+		m_TextStockAdmin->SetValue(
+								   m_TablaAggProductoAdmin->GetCellValue(fila, 4));
+	else
+		m_TextStockAdmin->Clear();
 	
 	event.Skip();
 }
 
+
 void HijaEditarProducto::ClickBotonGuardar(wxCommandEvent& event)
 {
 	string nombre = m_TextNomAdmin->GetValue().ToStdString();
+	string categoria = m_BoxCategoriaAdmin->GetValue().ToStdString();
 	double precio = wxAtof(m_TextPrecioAdmin->GetValue());
 	int stock = wxAtoi(m_TextStockAdmin->GetValue());
 	
-	// Como no edit?s la categor?a, la dejamos vac?a por ahora
 	Producto producto(
 					  m_idProductoSeleccionado,
 					  nombre,
-					  "",
+					  categoria,
 					  precio,
 					  stock
 					  );
@@ -84,6 +153,7 @@ void HijaEditarProducto::ClickBotonGuardar(wxCommandEvent& event)
 		m_TextNomAdmin->Clear();
 		m_TextPrecioAdmin->Clear();
 		m_TextStockAdmin->Clear();
+		m_BoxCategoriaAdmin->SetSelection(wxNOT_FOUND);
 		
 		m_idProductoSeleccionado = -1;
 	}

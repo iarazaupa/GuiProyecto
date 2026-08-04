@@ -14,7 +14,9 @@ protected:
 	
 public:
 	HijaEditarProducto(Sistema *sistema);
+	void CargarCategorias();
 	void CargarTabla();
+	
 	~HijaEditarProducto();
 };
 

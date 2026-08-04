@@ -2069,7 +2069,7 @@ BaseEditarProducto::BaseEditarProducto( wxWindow* parent, wxWindowID id, const w
 	m_TablaAggProductoAdmin = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_TablaAggProductoAdmin->CreateGrid( 5, 4 );
+	m_TablaAggProductoAdmin->CreateGrid( 0, 5 );
 	m_TablaAggProductoAdmin->EnableEditing( true );
 	m_TablaAggProductoAdmin->EnableGridLines( true );
 	m_TablaAggProductoAdmin->EnableDragGridSize( false );
@@ -2080,8 +2080,9 @@ BaseEditarProducto::BaseEditarProducto( wxWindow* parent, wxWindowID id, const w
 	m_TablaAggProductoAdmin->EnableDragColSize( true );
 	m_TablaAggProductoAdmin->SetColLabelValue( 0, wxT("ID") );
 	m_TablaAggProductoAdmin->SetColLabelValue( 1, wxT("Nombre") );
-	m_TablaAggProductoAdmin->SetColLabelValue( 2, wxT("Precio") );
-	m_TablaAggProductoAdmin->SetColLabelValue( 3, wxT("Stock") );
+	m_TablaAggProductoAdmin->SetColLabelValue( 2, wxT("categoria") );
+	m_TablaAggProductoAdmin->SetColLabelValue( 3, wxT("Precio") );
+	m_TablaAggProductoAdmin->SetColLabelValue( 4, wxT("Stock") );
 	m_TablaAggProductoAdmin->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Rows
@@ -2121,11 +2122,6 @@ BaseEditarProducto::BaseEditarProducto( wxWindow* parent, wxWindowID id, const w
 	bSizer144->Add( m_staticText97, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	m_BoxCategoriaAdmin = new wxComboBox( this, wxID_ANY, wxT("Categorias..."), wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
-	m_BoxCategoriaAdmin->Append( wxT("Nombre") );
-	m_BoxCategoriaAdmin->Append( wxT("Categoria") );
-	m_BoxCategoriaAdmin->Append( wxT("Precio") );
-	m_BoxCategoriaAdmin->Append( wxT("Stock") );
-	m_BoxCategoriaAdmin->Append( wxEmptyString );
 	m_BoxCategoriaAdmin->SetSelection( 1 );
 	bSizer144->Add( m_BoxCategoriaAdmin, 0, wxALL, 5 );
 
