@@ -1,6 +1,6 @@
 #include "HijaMenuVentaVend.h"
 
-HijaMenuVentaVend::HijaMenuVentaVend(wxWindow *parent) : BaseMenuVentaVend(parent) {
+HijaMenuVentaVend::HijaMenuVentaVend(Sistema *sistema, int idCliente): BaseMenuVentaVend(nullptr), m_sistema(sistema){
 	
 }
 

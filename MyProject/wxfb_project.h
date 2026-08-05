@@ -156,6 +156,10 @@ class BaseVentaVend : public wxFrame
 		wxTextCtrl* m_TextoVentaVend;
 		wxButton* m_BotonBuscarVentaVend;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonBuscar( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
 		BaseVentaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Vendedor - Venta"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 398,147 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );

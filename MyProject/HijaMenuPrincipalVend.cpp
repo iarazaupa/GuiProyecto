@@ -5,7 +5,7 @@
 #include "HijaModificarCliente.h"
 #include "HijaPrincipal.h"
 
-HijaMenuPrincipalVend::HijaMenuPrincipalVend(wxWindow *parent) : BaseMenuPrincipalVend(parent) {
+HijaMenuPrincipalVend::HijaMenuPrincipalVend(Sistema *sistema) : BaseMenuPrincipalVend(nullptr), m_sistema(sistema) {
 	
 }
 
@@ -16,11 +16,10 @@ HijaMenuPrincipalVend::~HijaMenuPrincipalVend() {
 void HijaMenuPrincipalVend::ClickBotonAggClienteVend( wxCommandEvent& event )  {
 	HijaAggClienteVend *win = new HijaAggClienteVend(nullptr);
 	win->Show();
-	
 }
 
 void HijaMenuPrincipalVend::ClickBotonVenderVend( wxCommandEvent& event )  {
-	HijaVentaVend *win = new HijaVentaVend(nullptr);
+	HijaVentaVend *win = new HijaVentaVend(m_sistema);
 	win->Show();
 }
 

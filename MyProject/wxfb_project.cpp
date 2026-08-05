@@ -419,10 +419,16 @@ BaseVentaVend::BaseVentaVend( wxWindow* parent, wxWindowID id, const wxString& t
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_BotonBuscarVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseVentaVend::ClickBotonBuscar ), NULL, this );
 }
 
 BaseVentaVend::~BaseVentaVend()
 {
+	// Disconnect Events
+	m_BotonBuscarVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseVentaVend::ClickBotonBuscar ), NULL, this );
+
 }
 
 BaseMenuVentaVend::BaseMenuVentaVend( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
