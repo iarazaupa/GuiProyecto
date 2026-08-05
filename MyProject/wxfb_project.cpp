@@ -123,7 +123,7 @@ BaseMenuPrincipalVend::BaseMenuPrincipalVend( wxWindow* parent, wxWindowID id, c
 	m_TablaClientesVend = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_TablaClientesVend->CreateGrid( 3, 3 );
+	m_TablaClientesVend->CreateGrid( 0, 3 );
 	m_TablaClientesVend->EnableEditing( true );
 	m_TablaClientesVend->EnableGridLines( true );
 	m_TablaClientesVend->EnableDragGridSize( false );
