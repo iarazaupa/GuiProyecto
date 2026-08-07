@@ -7,7 +7,10 @@ class HijaMenuVentaVend : public BaseMenuVentaVend {
 	
 private:
 	Sistema *m_sistema;
+	int m_idCliente;
+	Venta *m_venta;
 protected:
+	void ClickBotonAggProducto( wxCommandEvent& event )  override;
 	
 public:
 	HijaMenuVentaVend(Sistema *sistema, int idCliente);

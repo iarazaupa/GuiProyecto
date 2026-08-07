@@ -23,9 +23,8 @@
 #include <wx/frame.h>
 #include <wx/textctrl.h>
 #include <wx/grid.h>
-#include <wx/combobox.h>
-#include <wx/dynarray.h>
 #include <wx/dialog.h>
+#include <wx/combobox.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -183,6 +182,10 @@ class BaseMenuVentaVend : public wxFrame
 		wxButton* m_BotonTicketMenuVentaVend;
 		wxButton* m_BotonConfVentaMenuVentaVend;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonAggProducto( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
 		BaseMenuVentaVend( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Vendedor - Menu de Venta"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
@@ -200,13 +203,20 @@ class BaseMVAggProductoVend : public wxFrame
 
 	protected:
 		wxStaticText* m_staticText12;
-		wxComboBox* m_MDespCategVend;
 		wxStaticText* m_staticText13;
-		wxTextCtrl* m_IDProdVend;
+		wxTextCtrl* m_categoria;
+		wxStaticText* m_staticText131;
+		wxTextCtrl* m_IDProdVend1;
 		wxStaticText* m_staticText14;
 		wxTextCtrl* m_CantidadVend;
 		wxGrid* m_TablaAggProductoVend;
 		wxButton* m_BotonAggProductoVend;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void BuscarPorCategoria( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickEnCelda( wxGridEvent& event ) { event.Skip(); }
+		virtual void ClickBotonAggProducto( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 

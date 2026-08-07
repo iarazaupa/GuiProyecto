@@ -487,10 +487,16 @@ BaseMenuVentaVend::BaseMenuVentaVend( wxWindow* parent, wxWindowID id, const wxS
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_BotonAggProductoMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonAggProducto ), NULL, this );
 }
 
 BaseMenuVentaVend::~BaseMenuVentaVend()
 {
+	// Disconnect Events
+	m_BotonAggProductoMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonAggProducto ), NULL, this );
+
 }
 
 BaseMVAggProductoVend::BaseMVAggProductoVend( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
@@ -519,21 +525,10 @@ BaseMVAggProductoVend::BaseMVAggProductoVend( wxWindow* parent, wxWindowID id, c
 	wxBoxSizer* bSizer35;
 	bSizer35 = new wxBoxSizer( wxVERTICAL );
 
-	wxBoxSizer* bSizer41;
-	bSizer41 = new wxBoxSizer( wxVERTICAL );
-
-	m_MDespCategVend = new wxComboBox( this, wxID_ANY, wxT("Categoria"), wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
-	m_MDespCategVend->SetFont( wxFont( 9, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial") ) );
-
-	bSizer41->Add( m_MDespCategVend, 0, wxALL|wxEXPAND, 5 );
-
-
-	bSizer35->Add( bSizer41, 0, wxEXPAND, 5 );
-
 	wxBoxSizer* bSizer33;
 	bSizer33 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_staticText13 = new wxStaticText( this, wxID_ANY, wxT("ID del producto:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText13 = new wxStaticText( this, wxID_ANY, wxT("categoria del producto"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText13->Wrap( -1 );
 	m_staticText13->SetFont( wxFont( 9, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial") ) );
 	m_staticText13->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_INFOTEXT ) );
@@ -541,11 +536,28 @@ BaseMVAggProductoVend::BaseMVAggProductoVend( wxWindow* parent, wxWindowID id, c
 
 	bSizer33->Add( m_staticText13, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_IDProdVend = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer33->Add( m_IDProdVend, 0, wxALL, 5 );
+	m_categoria = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	bSizer33->Add( m_categoria, 0, wxALL, 5 );
 
 
 	bSizer35->Add( bSizer33, 0, wxALIGN_RIGHT, 5 );
+
+	wxBoxSizer* bSizer331;
+	bSizer331 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText131 = new wxStaticText( this, wxID_ANY, wxT("ID del producto:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText131->Wrap( -1 );
+	m_staticText131->SetFont( wxFont( 9, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Arial") ) );
+	m_staticText131->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_INFOTEXT ) );
+	m_staticText131->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOW ) );
+
+	bSizer331->Add( m_staticText131, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+
+	m_IDProdVend1 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer331->Add( m_IDProdVend1, 0, wxALL, 5 );
+
+
+	bSizer35->Add( bSizer331, 1, wxEXPAND, 5 );
 
 	wxBoxSizer* bSizer37;
 	bSizer37 = new wxBoxSizer( wxHORIZONTAL );
@@ -573,7 +585,7 @@ BaseMVAggProductoVend::BaseMVAggProductoVend( wxWindow* parent, wxWindowID id, c
 	m_TablaAggProductoVend = new wxGrid( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
 	// Grid
-	m_TablaAggProductoVend->CreateGrid( 5, 4 );
+	m_TablaAggProductoVend->CreateGrid( 0, 5 );
 	m_TablaAggProductoVend->EnableEditing( true );
 	m_TablaAggProductoVend->EnableGridLines( true );
 	m_TablaAggProductoVend->EnableDragGridSize( false );
@@ -584,8 +596,10 @@ BaseMVAggProductoVend::BaseMVAggProductoVend( wxWindow* parent, wxWindowID id, c
 	m_TablaAggProductoVend->EnableDragColSize( true );
 	m_TablaAggProductoVend->SetColLabelValue( 0, wxT("ID") );
 	m_TablaAggProductoVend->SetColLabelValue( 1, wxT("Nombre") );
-	m_TablaAggProductoVend->SetColLabelValue( 2, wxT("Precio") );
-	m_TablaAggProductoVend->SetColLabelValue( 3, wxT("Stock") );
+	m_TablaAggProductoVend->SetColLabelValue( 2, wxT("Categoria") );
+	m_TablaAggProductoVend->SetColLabelValue( 3, wxT("Precio") );
+	m_TablaAggProductoVend->SetColLabelValue( 4, wxT("Stock") );
+	m_TablaAggProductoVend->SetColLabelValue( 5, wxEmptyString );
 	m_TablaAggProductoVend->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Rows
@@ -615,10 +629,20 @@ BaseMVAggProductoVend::BaseMVAggProductoVend( wxWindow* parent, wxWindowID id, c
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_categoria->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseMVAggProductoVend::BuscarPorCategoria ), NULL, this );
+	m_TablaAggProductoVend->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( BaseMVAggProductoVend::ClickEnCelda ), NULL, this );
+	m_BotonAggProductoVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMVAggProductoVend::ClickBotonAggProducto ), NULL, this );
 }
 
 BaseMVAggProductoVend::~BaseMVAggProductoVend()
 {
+	// Disconnect Events
+	m_categoria->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseMVAggProductoVend::BuscarPorCategoria ), NULL, this );
+	m_TablaAggProductoVend->Disconnect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( BaseMVAggProductoVend::ClickEnCelda ), NULL, this );
+	m_BotonAggProductoVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMVAggProductoVend::ClickBotonAggProducto ), NULL, this );
+
 }
 
 BaseMVQuitarProd::BaseMVQuitarProd( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
