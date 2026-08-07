@@ -64,26 +64,32 @@ void HijaMVAggProductoVend::ClickEnCelda(wxGridEvent& event)
 }
 
 
+///verificacion de producto que funciona
+//void HijaMVAggProductoVend::ClickBotonAggProducto(wxCommandEvent& event)
+//{
+//	if (m_producto == nullptr)
+//	{
+//		wxMessageBox("No hay ningún producto seleccionado.");
+//		return;
+//	}
+//	
+//	m_cantidadCompra = wxAtoi(m_CantidadVend->GetValue());
+//	
+//	wxString mensaje;
+//	
+//	mensaje += "ID: " + wxString::Format("%d", m_producto->GetID()) + "\n";
+//	mensaje += "Nombre: " + wxString(m_producto->GetNombre()) + "\n";
+//	mensaje += "Categoria: " + wxString(m_producto->GetCategoria()) + "\n";
+//	mensaje += "Precio: " + wxString::Format("%.2f", m_producto->GetPrecio()) + "\n";
+//	mensaje += "Stock: " + wxString::Format("%d", m_producto->GetStock()) + "\n";
+//	mensaje += "Cantidad: " + wxString::Format("%d", m_cantidadCompra);
+//	
+//	wxMessageBox(mensaje, "Producto seleccionado");
+//}
+
 void HijaMVAggProductoVend::ClickBotonAggProducto(wxCommandEvent& event)
 {
-	if (m_producto == nullptr)
-	{
-		wxMessageBox("No hay ningún producto seleccionado.");
-		return;
-	}
-	
-	m_cantidadCompra = wxAtoi(m_CantidadVend->GetValue());
-	
-	wxString mensaje;
-	
-	mensaje += "ID: " + wxString::Format("%d", m_producto->GetID()) + "\n";
-	mensaje += "Nombre: " + wxString(m_producto->GetNombre()) + "\n";
-	mensaje += "Categoria: " + wxString(m_producto->GetCategoria()) + "\n";
-	mensaje += "Precio: " + wxString::Format("%.2f", m_producto->GetPrecio()) + "\n";
-	mensaje += "Stock: " + wxString::Format("%d", m_producto->GetStock()) + "\n";
-	mensaje += "Cantidad: " + wxString::Format("%d", m_cantidadCompra);
-	
-	wxMessageBox(mensaje, "Producto seleccionado");
+	///aca debe ir la logica para registrar la venta
 }
 
 void HijaMVAggProductoVend::BuscarPorCategoria(wxCommandEvent& event)
