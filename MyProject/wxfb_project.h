@@ -68,7 +68,6 @@ class BaseMenuPrincipalVend : public wxFrame
 		wxButton* m_BotonVerstockVend;
 		wxButton* m_botonModfDatosClientes;
 		wxTextCtrl* m_TextoMenuPVend;
-		wxButton* m_BotonBuscarVend;
 		wxGrid* m_TablaClientesVend;
 		wxButton* m_BotonVolverVend;
 
@@ -77,6 +76,8 @@ class BaseMenuPrincipalVend : public wxFrame
 		virtual void ClickBotonVenderVend( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonStockVend( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonModifClienteVend( wxCommandEvent& event ) { event.Skip(); }
+		virtual void FiltrarClientes( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickEnFila( wxGridEvent& event ) { event.Skip(); }
 		virtual void ClickBotonVolverVend( wxCommandEvent& event ) { event.Skip(); }
 
 
@@ -345,19 +346,17 @@ class BaseModificarCliente : public wxFrame
 		wxStaticText* m_staticText88;
 		wxStaticText* m_staticText89;
 		wxStaticText* m_TextDniCliente;
-		wxStaticText* m_staticText90;
-		wxStaticText* m_textNombreCliente;
 		wxStaticText* m_staticText126;
 		wxTextCtrl* m_TextModifNombreCliente;
-		wxStaticText* m_staticText901;
-		wxStaticText* m_textEmailCliente;
 		wxStaticText* m_staticText1261;
 		wxTextCtrl* m_TextModifEmailCliente;
-		wxStaticText* m_staticText902;
-		wxStaticText* m_textNombreCliente2;
 		wxStaticText* m_staticText1262;
 		wxTextCtrl* m_TextModifTelefonoCliente;
 		wxButton* m_BotonGuardarModificacion;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickBotonModificarCliente( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 

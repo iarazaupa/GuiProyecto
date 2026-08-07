@@ -108,11 +108,8 @@ BaseMenuPrincipalVend::BaseMenuPrincipalVend( wxWindow* parent, wxWindowID id, c
 	wxBoxSizer* bSizer9;
 	bSizer9 = new wxBoxSizer( wxHORIZONTAL );
 
-	m_TextoMenuPVend = new wxTextCtrl( this, wxID_ANY, wxT("Ingrese Dni del cliente"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_TextoMenuPVend = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer9->Add( m_TextoMenuPVend, 1, wxALL, 5 );
-
-	m_BotonBuscarVend = new wxButton( this, wxID_ANY, wxT("Buscar"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer9->Add( m_BotonBuscarVend, 0, wxALL, 5 );
 
 
 	bSizer4->Add( bSizer9, 0, wxEXPAND, 5 );
@@ -173,6 +170,8 @@ BaseMenuPrincipalVend::BaseMenuPrincipalVend( wxWindow* parent, wxWindowID id, c
 	m_BotonVenderVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonVenderVend ), NULL, this );
 	m_BotonVerstockVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonStockVend ), NULL, this );
 	m_botonModfDatosClientes->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonModifClienteVend ), NULL, this );
+	m_TextoMenuPVend->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( BaseMenuPrincipalVend::FiltrarClientes ), NULL, this );
+	m_TablaClientesVend->Connect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( BaseMenuPrincipalVend::ClickEnFila ), NULL, this );
 	m_BotonVolverVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonVolverVend ), NULL, this );
 }
 
@@ -183,6 +182,8 @@ BaseMenuPrincipalVend::~BaseMenuPrincipalVend()
 	m_BotonVenderVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonVenderVend ), NULL, this );
 	m_BotonVerstockVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonStockVend ), NULL, this );
 	m_botonModfDatosClientes->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonModifClienteVend ), NULL, this );
+	m_TextoMenuPVend->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( BaseMenuPrincipalVend::FiltrarClientes ), NULL, this );
+	m_TablaClientesVend->Disconnect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( BaseMenuPrincipalVend::ClickEnFila ), NULL, this );
 	m_BotonVolverVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuPrincipalVend::ClickBotonVolverVend ), NULL, this );
 
 }
@@ -1147,20 +1148,6 @@ BaseModificarCliente::BaseModificarCliente( wxWindow* parent, wxWindowID id, con
 	wxBoxSizer* bSizer103;
 	bSizer103 = new wxBoxSizer( wxVERTICAL );
 
-	wxBoxSizer* bSizer138;
-	bSizer138 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText90 = new wxStaticText( this, wxID_ANY, wxT("Nombre :"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText90->Wrap( -1 );
-	bSizer138->Add( m_staticText90, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
-
-	m_textNombreCliente = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_textNombreCliente->Wrap( -1 );
-	bSizer138->Add( m_textNombreCliente, 0, wxALL, 5 );
-
-
-	bSizer103->Add( bSizer138, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
-
 	wxBoxSizer* bSizer137;
 	bSizer137 = new wxBoxSizer( wxHORIZONTAL );
 
@@ -1180,20 +1167,6 @@ BaseModificarCliente::BaseModificarCliente( wxWindow* parent, wxWindowID id, con
 	wxBoxSizer* bSizer1031;
 	bSizer1031 = new wxBoxSizer( wxVERTICAL );
 
-	wxBoxSizer* bSizer1381;
-	bSizer1381 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText901 = new wxStaticText( this, wxID_ANY, wxT("Email:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText901->Wrap( -1 );
-	bSizer1381->Add( m_staticText901, 0, wxALL, 5 );
-
-	m_textEmailCliente = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_textEmailCliente->Wrap( -1 );
-	bSizer1381->Add( m_textEmailCliente, 0, wxALL, 5 );
-
-
-	bSizer1031->Add( bSizer1381, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
-
 	wxBoxSizer* bSizer1371;
 	bSizer1371 = new wxBoxSizer( wxHORIZONTAL );
 
@@ -1212,20 +1185,6 @@ BaseModificarCliente::BaseModificarCliente( wxWindow* parent, wxWindowID id, con
 
 	wxBoxSizer* bSizer1032;
 	bSizer1032 = new wxBoxSizer( wxVERTICAL );
-
-	wxBoxSizer* bSizer1382;
-	bSizer1382 = new wxBoxSizer( wxHORIZONTAL );
-
-	m_staticText902 = new wxStaticText( this, wxID_ANY, wxT("Telefono::"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText902->Wrap( -1 );
-	bSizer1382->Add( m_staticText902, 0, wxALL, 5 );
-
-	m_textNombreCliente2 = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_textNombreCliente2->Wrap( -1 );
-	bSizer1382->Add( m_textNombreCliente2, 0, wxALL, 5 );
-
-
-	bSizer1032->Add( bSizer1382, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 	wxBoxSizer* bSizer1372;
 	bSizer1372 = new wxBoxSizer( wxHORIZONTAL );
@@ -1254,10 +1213,16 @@ BaseModificarCliente::BaseModificarCliente( wxWindow* parent, wxWindowID id, con
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_BotonGuardarModificacion->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseModificarCliente::ClickBotonModificarCliente ), NULL, this );
 }
 
 BaseModificarCliente::~BaseModificarCliente()
 {
+	// Disconnect Events
+	m_BotonGuardarModificacion->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseModificarCliente::ClickBotonModificarCliente ), NULL, this );
+
 }
 
 BaseAdministradorContrasenia::BaseAdministradorContrasenia( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
