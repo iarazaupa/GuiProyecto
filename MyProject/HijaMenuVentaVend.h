@@ -2,12 +2,14 @@
 #define HIJAMENUVENTAVEND_H
 #include "wxfb_project.h"
 #include "Sistema.h"
+#include "Cliente.h"
 
 class HijaMenuVentaVend : public BaseMenuVentaVend {
 	
 private:
 	Sistema *m_sistema;
 	int m_idCliente;
+	Cliente m_cliente;
 	Venta *m_venta;
 protected:
 	void ClickBotonAggProducto( wxCommandEvent& event )  override;

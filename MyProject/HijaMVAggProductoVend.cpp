@@ -14,9 +14,11 @@ HijaMVAggProductoVend::~HijaMVAggProductoVend()
 
 
 void HijaMVAggProductoVend::CargarGrillaProductos ( ) {
+	if (m_TablaAggProductoVend->GetNumberRows() > 0) {
+		m_TablaAggProductoVend->DeleteRows(0, m_TablaAggProductoVend->GetNumberRows());
+	}
 	vector<Producto> GrillaStock;
 	bool seGuardo = m_sistema->ListarProductos(GrillaStock);
-	
 	
 	for (int i = 0; i < GrillaStock.size(); i++)
 	{
@@ -46,10 +48,12 @@ void HijaMVAggProductoVend::ClickEnCelda(wxGridEvent& event)
 	vector<Producto> productos;
 	m_sistema->ListarProductos(productos);
 	
-	for (int i = 0; i < productos.size(); i++)
-	{
-		if (productos[i].GetID() == idProducto)
-		{
+	//liberar anterior puntero
+	delete m_producto;
+	m_producto = nullptr;
+	
+	for (int i = 0; i < productos.size(); i++) {
+		if (productos[i].GetID() == idProducto) {
 			// Crear una copia que siga existiendo
 			m_producto = new Producto(productos[i]);
 			break;

@@ -12,7 +12,7 @@ HijaPrincipal::~HijaPrincipal() {
 }
 
 void HijaPrincipal::ClickBotonVendedor( wxCommandEvent& event )  {
-	HijaMenuPrincipalVend *win = new HijaMenuPrincipalVend(nullptr);
+	HijaMenuPrincipalVend *win = new HijaMenuPrincipalVend(m_sistema);
 	win->Show();
 	
 	this->Hide();

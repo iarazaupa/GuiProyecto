@@ -35,7 +35,7 @@ void HijaMenuPrincipalVend::CargarClientes() {
 }
 
 void HijaMenuPrincipalVend::ClickBotonAggClienteVend( wxCommandEvent& event )  {
-	HijaAggClienteVend *win = new HijaAggClienteVend(nullptr);
+	HijaAggClienteVend *win = new HijaAggClienteVend(m_sistema);
 	win->Show();
 }
 
@@ -45,7 +45,7 @@ void HijaMenuPrincipalVend::ClickBotonVenderVend( wxCommandEvent& event )  {
 }
 
 void HijaMenuPrincipalVend::ClickBotonStockVend( wxCommandEvent& event )  {
-	HijaStockVend *win = new HijaStockVend(nullptr);
+	HijaStockVend *win = new HijaStockVend(m_sistema);
 	win->Show();
 	this->Hide();
 }
@@ -69,7 +69,7 @@ void HijaMenuPrincipalVend::ClickBotonModifClienteVend(wxCommandEvent& event) {
 }
 
 void HijaMenuPrincipalVend::ClickBotonVolverVend( wxCommandEvent& event )  {
-	HijaPrincipal *win = new HijaPrincipal(nullptr);
+	HijaPrincipal *win = new HijaPrincipal(m_sistema);
 	win->Show();
 	Close();
 }

@@ -26,7 +26,7 @@ HijaStockVend::~HijaStockVend() {
 }
 
 void HijaStockVend::ClickBotonVolverStockVend( wxCommandEvent& event )  {
-	HijaMenuPrincipalVend *win = new HijaMenuPrincipalVend(nullptr);
+	HijaMenuPrincipalVend *win = new HijaMenuPrincipalVend(m_sistema);
 	win->Show();
 	Close();
 }
