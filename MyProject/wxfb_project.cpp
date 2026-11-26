@@ -490,12 +490,14 @@ BaseMenuVentaVend::BaseMenuVentaVend( wxWindow* parent, wxWindowID id, const wxS
 
 	// Connect Events
 	m_BotonAggProductoMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonAggProducto ), NULL, this );
+	m_BotonQuitProductoMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick ), NULL, this );
 }
 
 BaseMenuVentaVend::~BaseMenuVentaVend()
 {
 	// Disconnect Events
 	m_BotonAggProductoMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonAggProducto ), NULL, this );
+	m_BotonQuitProductoMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick ), NULL, this );
 
 }
 

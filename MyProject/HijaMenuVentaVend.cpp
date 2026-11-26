@@ -17,3 +17,7 @@ void HijaMenuVentaVend::ClickBotonAggProducto( wxCommandEvent& event )  {
 	ventana->Show();
 }
 
+void HijaMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick( wxCommandEvent& event )  {
+	event.Skip();
+}
+
