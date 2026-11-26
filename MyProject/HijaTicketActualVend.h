@@ -2,7 +2,7 @@
 #define HIJATICKETACTUALVEND_H
 #include "wxfb_project.h"
 
-class HijaTicketActualVend : public BaseTicketActualVend {
+class HijaTicketActualVend : public BaseTicketActual{
 	
 private:
 	

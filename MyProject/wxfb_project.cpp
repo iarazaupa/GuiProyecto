@@ -505,6 +505,7 @@ BaseMenuVentaVend::BaseMenuVentaVend( wxWindow* parent, wxWindowID id, const wxS
 	// Connect Events
 	m_BotonAggProductoMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonAggProducto ), NULL, this );
 	m_BotonQuitProductoMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick ), NULL, this );
+	m_BotonTicketMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonTicket ), NULL, this );
 }
 
 BaseMenuVentaVend::~BaseMenuVentaVend()
@@ -512,6 +513,7 @@ BaseMenuVentaVend::~BaseMenuVentaVend()
 	// Disconnect Events
 	m_BotonAggProductoMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonAggProducto ), NULL, this );
 	m_BotonQuitProductoMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick ), NULL, this );
+	m_BotonTicketMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonTicket ), NULL, this );
 
 }
 
@@ -804,7 +806,7 @@ BaseTicketActual::BaseTicketActual( wxWindow* parent, wxWindowID id, const wxStr
 	m_staticText23->Wrap( -1 );
 	bSizer48->Add( m_staticText23, 1, wxALL, 5 );
 
-	m_textCliente = new wxStaticText( this, wxID_ANY, wxT("pepe"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCliente = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	m_textCliente->Wrap( -1 );
 	bSizer48->Add( m_textCliente, 1, wxEXPAND|wxALL, 5 );
 
@@ -818,7 +820,7 @@ BaseTicketActual::BaseTicketActual( wxWindow* parent, wxWindowID id, const wxStr
 	m_staticText25->Wrap( -1 );
 	bSizer49->Add( m_staticText25, 0, wxALL, 5 );
 
-	m_textProducto = new wxStaticText( this, wxID_ANY, wxT("Mate Imperial"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textProducto = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	m_textProducto->Wrap( -1 );
 	bSizer49->Add( m_textProducto, 0, wxALL, 5 );
 
@@ -846,7 +848,7 @@ BaseTicketActual::BaseTicketActual( wxWindow* parent, wxWindowID id, const wxStr
 	m_staticText29->Wrap( -1 );
 	bSizer51->Add( m_staticText29, 0, wxALL, 5 );
 
-	m_textPrecioUnitario = new wxStaticText( this, wxID_ANY, wxT("$3.000"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_textPrecioUnitario = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	m_textPrecioUnitario->Wrap( -1 );
 	bSizer51->Add( m_textPrecioUnitario, 0, wxALL, 5 );
 
