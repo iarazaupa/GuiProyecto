@@ -452,6 +452,20 @@ BaseMenuVentaVend::BaseMenuVentaVend( wxWindow* parent, wxWindowID id, const wxS
 
 	bSizer26->Add( bSizer29, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
+	wxBoxSizer* bSizer141;
+	bSizer141 = new wxBoxSizer( wxHORIZONTAL );
+
+	m_staticText92 = new wxStaticText( this, wxID_ANY, wxT("Cliente:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText92->Wrap( -1 );
+	bSizer141->Add( m_staticText92, 0, wxALL, 5 );
+
+	m_nombreCliente = new wxStaticText( this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_nombreCliente->Wrap( -1 );
+	bSizer141->Add( m_nombreCliente, 0, wxALL, 5 );
+
+
+	bSizer26->Add( bSizer141, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
 	wxBoxSizer* bSizer27;
 	bSizer27 = new wxBoxSizer( wxHORIZONTAL );
 

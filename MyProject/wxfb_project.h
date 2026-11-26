@@ -177,6 +177,8 @@ class BaseMenuVentaVend : public wxFrame
 
 	protected:
 		wxStaticText* m_staticText11;
+		wxStaticText* m_staticText92;
+		wxStaticText* m_nombreCliente;
 		wxButton* m_BotonAggProductoMenuVentaVend;
 		wxButton* m_BotonQuitProductoMenuVentaVend;
 		wxButton* m_BotonTicketMenuVentaVend;
