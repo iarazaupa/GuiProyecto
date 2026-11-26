@@ -23,8 +23,8 @@
 #include <wx/frame.h>
 #include <wx/textctrl.h>
 #include <wx/grid.h>
-#include <wx/dialog.h>
 #include <wx/combobox.h>
+#include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -207,7 +207,7 @@ class BaseMVAggProductoVend : public wxFrame
 	protected:
 		wxStaticText* m_staticText12;
 		wxStaticText* m_staticText13;
-		wxTextCtrl* m_categoria;
+		wxComboBox* m_categoria;
 		wxStaticText* m_staticText131;
 		wxTextCtrl* m_IDProdVend1;
 		wxStaticText* m_staticText14;

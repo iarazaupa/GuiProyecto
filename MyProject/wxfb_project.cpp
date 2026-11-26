@@ -552,7 +552,7 @@ BaseMVAggProductoVend::BaseMVAggProductoVend( wxWindow* parent, wxWindowID id, c
 
 	bSizer33->Add( m_staticText13, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_categoria = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	m_categoria = new wxComboBox( this, wxID_ANY, wxT("categorias"), wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
 	bSizer33->Add( m_categoria, 0, wxALL, 5 );
 
 
@@ -647,7 +647,7 @@ BaseMVAggProductoVend::BaseMVAggProductoVend( wxWindow* parent, wxWindowID id, c
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	m_categoria->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseMVAggProductoVend::BuscarPorCategoria ), NULL, this );
+	m_categoria->Connect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( BaseMVAggProductoVend::BuscarPorCategoria ), NULL, this );
 	m_TablaAggProductoVend->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( BaseMVAggProductoVend::ClickEnCelda ), NULL, this );
 	m_BotonAggProductoVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMVAggProductoVend::ClickBotonAggProducto ), NULL, this );
 }
@@ -655,7 +655,7 @@ BaseMVAggProductoVend::BaseMVAggProductoVend( wxWindow* parent, wxWindowID id, c
 BaseMVAggProductoVend::~BaseMVAggProductoVend()
 {
 	// Disconnect Events
-	m_categoria->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( BaseMVAggProductoVend::BuscarPorCategoria ), NULL, this );
+	m_categoria->Disconnect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( BaseMVAggProductoVend::BuscarPorCategoria ), NULL, this );
 	m_TablaAggProductoVend->Disconnect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( BaseMVAggProductoVend::ClickEnCelda ), NULL, this );
 	m_BotonAggProductoVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMVAggProductoVend::ClickBotonAggProducto ), NULL, this );
 
