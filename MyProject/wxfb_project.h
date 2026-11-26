@@ -186,7 +186,7 @@ class BaseMenuVentaVend : public wxFrame
 
 		// Virtual event handlers, override them in your derived class
 		virtual void ClickBotonAggProducto( wxCommandEvent& event ) { event.Skip(); }
-		virtual void ClickBotonQuitProductoMenuVentaVendOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonQuitProductoMenuVentaVend( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:
@@ -244,6 +244,11 @@ class BaseMVQuitarProd : public wxFrame
 		wxTextCtrl* m_textCantQuitarProdVend;
 		wxGrid* m_TablaQuitarProdVend;
 		wxButton* m_BotonEliminarQuitProdVend;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickEnCelda( wxGridEvent& event ) { event.Skip(); }
+		virtual void ClickBotonEliminar( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 

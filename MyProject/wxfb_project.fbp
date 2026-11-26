@@ -2789,7 +2789,7 @@
                     <property name="window_extra_style"></property>
                     <property name="window_name"></property>
                     <property name="window_style"></property>
-                    <event name="OnButtonClick">ClickBotonQuitProductoMenuVentaVendOnButtonClick</event>
+                    <event name="OnButtonClick">ClickBotonQuitProductoMenuVentaVend</event>
                   </object>
                 </object>
                 <object class="sizeritem" expanded="false">
@@ -4099,7 +4099,7 @@
                 <property name="close_button">1</property>
                 <property name="col_label_horiz_alignment">wxALIGN_CENTER</property>
                 <property name="col_label_size"></property>
-                <property name="col_label_values">&quot;ID&quot; &quot;Nombre&quot; &quot;Precio&quot; &quot;Stock&quot;</property>
+                <property name="col_label_values">&quot;ID&quot; &quot;Nombre&quot; &quot;Precio&quot; &quot;Cantidad&quot;</property>
                 <property name="col_label_vert_alignment">wxALIGN_CENTER</property>
                 <property name="cols">4</property>
                 <property name="column_sizes"></property>
@@ -4158,6 +4158,7 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
+                <event name="OnGridCellLeftClick">ClickEnCelda</event>
               </object>
             </object>
           </object>
@@ -4243,6 +4244,7 @@
                 <property name="window_extra_style"></property>
                 <property name="window_name"></property>
                 <property name="window_style"></property>
+                <event name="OnButtonClick">ClickBotonEliminar</event>
               </object>
             </object>
           </object>

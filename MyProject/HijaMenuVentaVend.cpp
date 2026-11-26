@@ -1,6 +1,7 @@
 #include "HijaMenuVentaVend.h"
 #include "HijaMVAggProductoVend.h"
 #include "Venta.h"
+#include "HijaMVQuitarProd.h"
 
 HijaMenuVentaVend::HijaMenuVentaVend(Sistema *sistema, int idCliente): BaseMenuVentaVend(nullptr), m_sistema(sistema), m_idCliente(idCliente){
 	m_cliente = m_sistema->BuscarCliente(idCliente);
@@ -18,7 +19,8 @@ void HijaMenuVentaVend::ClickBotonAggProducto( wxCommandEvent& event )  {
 	ventana->Show();
 }
 
-void HijaMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick( wxCommandEvent& event )  {
-	event.Skip();
+void HijaMenuVentaVend::ClickBotonQuitProductoMenuVentaVend( wxCommandEvent& event )  {
+	HijaMVQuitarProd *win = new HijaMVQuitarProd(m_sistema,m_venta);
+	win->Show();
 }
 

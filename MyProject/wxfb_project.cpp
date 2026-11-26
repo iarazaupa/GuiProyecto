@@ -504,14 +504,14 @@ BaseMenuVentaVend::BaseMenuVentaVend( wxWindow* parent, wxWindowID id, const wxS
 
 	// Connect Events
 	m_BotonAggProductoMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonAggProducto ), NULL, this );
-	m_BotonQuitProductoMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick ), NULL, this );
+	m_BotonQuitProductoMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonQuitProductoMenuVentaVend ), NULL, this );
 }
 
 BaseMenuVentaVend::~BaseMenuVentaVend()
 {
 	// Disconnect Events
 	m_BotonAggProductoMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonAggProducto ), NULL, this );
-	m_BotonQuitProductoMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick ), NULL, this );
+	m_BotonQuitProductoMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonQuitProductoMenuVentaVend ), NULL, this );
 
 }
 
@@ -725,7 +725,7 @@ BaseMVQuitarProd::BaseMVQuitarProd( wxWindow* parent, wxWindowID id, const wxStr
 	m_TablaQuitarProdVend->SetColLabelValue( 0, wxT("ID") );
 	m_TablaQuitarProdVend->SetColLabelValue( 1, wxT("Nombre") );
 	m_TablaQuitarProdVend->SetColLabelValue( 2, wxT("Precio") );
-	m_TablaQuitarProdVend->SetColLabelValue( 3, wxT("Stock") );
+	m_TablaQuitarProdVend->SetColLabelValue( 3, wxT("Cantidad") );
 	m_TablaQuitarProdVend->SetColLabelAlignment( wxALIGN_CENTER, wxALIGN_CENTER );
 
 	// Rows
@@ -755,10 +755,18 @@ BaseMVQuitarProd::BaseMVQuitarProd( wxWindow* parent, wxWindowID id, const wxStr
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_TablaQuitarProdVend->Connect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( BaseMVQuitarProd::ClickEnCelda ), NULL, this );
+	m_BotonEliminarQuitProdVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMVQuitarProd::ClickBotonEliminar ), NULL, this );
 }
 
 BaseMVQuitarProd::~BaseMVQuitarProd()
 {
+	// Disconnect Events
+	m_TablaQuitarProdVend->Disconnect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( BaseMVQuitarProd::ClickEnCelda ), NULL, this );
+	m_BotonEliminarQuitProdVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMVQuitarProd::ClickBotonEliminar ), NULL, this );
+
 }
 
 BaseTicketActual::BaseTicketActual( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
