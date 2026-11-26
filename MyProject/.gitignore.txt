@@ -1,0 +1,16 @@
+# Archivos compilados de C++
+*.o
+*.obj
+*.exe
+*.dll
+*.pdb
+*.ilk
+
+# Carpetas de compilacion
+debug/
+release/
+build/
+
+# Archivos temporales
+*.tmp
+*.log
