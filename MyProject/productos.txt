@@ -3,3 +3,4 @@
 3;Mate Acero;calabaza;7000;0
 43437;camionero de calabaza;calabaza;10000;10
 435;mate animal print;calabaza;30000;2
+134;Mate de alg;Mate Algarrobo;9000;6

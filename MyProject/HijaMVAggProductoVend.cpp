@@ -5,8 +5,16 @@
 
 HijaMVAggProductoVend::HijaMVAggProductoVend(Sistema *sistema, Venta *venta): BaseMVAggProductoVend(nullptr), m_sistema(sistema), m_venta(venta), m_producto(nullptr){
 	CargarGrillaProductos();
+	
+	vector<string> categorias = m_sistema->ObtenerCategorias();
+	for (int i = 0; i < categorias.size(); i++) {
+		m_categoria->Append(categorias[i]);
+	}
+	
+	if (m_categoria->GetCount() > 0) {
+		m_categoria->SetSelection(0);
+	}
 }
-
 HijaMVAggProductoVend::~HijaMVAggProductoVend()
 {
 	delete m_producto;
