@@ -2,6 +2,7 @@
 #include "HijaMVAggProductoVend.h"
 #include "Venta.h"
 #include "HijaTicketActualVend.h"
+#include "HijaMVQuitarProd.h"
 
 HijaMenuVentaVend::HijaMenuVentaVend(Sistema *sistema, int idCliente): BaseMenuVentaVend(nullptr), m_sistema(sistema), m_idCliente(idCliente){
 	m_cliente = m_sistema->BuscarCliente(idCliente);
@@ -20,11 +21,14 @@ void HijaMenuVentaVend::ClickBotonAggProducto( wxCommandEvent& event )  {
 }
 
 void HijaMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick( wxCommandEvent& event )  {
-	event.Skip();
+	HijaMVQuitarProd *win = new HijaMVQuitarProd(m_sistema,m_venta);
+	win->Show();
 }
 
 void HijaMenuVentaVend::ClickBotonTicket( wxCommandEvent& event ) {
 	HijaTicketActualVend* ventana = new HijaTicketActualVend(this, m_venta);
 	ventana->Show();
 }
+
+
 
