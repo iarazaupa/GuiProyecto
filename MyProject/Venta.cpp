@@ -134,6 +134,9 @@ double Venta::Gettotal() {
 int Venta::GetID() {
 	return m_ID;
 }
+Cliente* Venta::GetCliente() {
+	return m_cliente;
+}
 
 // guardo la venta y sus detalles en archivos
 void Venta::GuardarEnArchivos() {

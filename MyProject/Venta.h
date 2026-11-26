@@ -33,6 +33,7 @@ public:
 	
 	double Gettotal();
 	int GetID();
+	Cliente* GetCliente();
 	vector<DetalleVenta> GetDetalles();
 	string Getfecha();
 	string ObtenerFechaActual();

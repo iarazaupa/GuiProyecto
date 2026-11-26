@@ -24,7 +24,7 @@ void HijaMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick( wxComm
 }
 
 void HijaMenuVentaVend::ClickBotonTicket( wxCommandEvent& event ) {
-	HijaTicketActualVend* ventana = new HijaTicketActualVend(this);
+	HijaTicketActualVend* ventana = new HijaTicketActualVend(this, m_venta);
 	ventana->Show();
 }
 
