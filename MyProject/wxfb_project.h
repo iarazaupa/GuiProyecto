@@ -246,6 +246,11 @@ class BaseMVQuitarProd : public wxFrame
 		wxGrid* m_TablaQuitarProdVend;
 		wxButton* m_BotonEliminarQuitProdVend;
 
+		// Virtual event handlers, override them in your derived class
+		virtual void ClickEnCelda( wxGridEvent& event ) { event.Skip(); }
+		virtual void ClickBotonEliminar( wxCommandEvent& event ) { event.Skip(); }
+
+
 	public:
 
 		BaseMVQuitarProd( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Menu Venta - Quitar Producto"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );

@@ -12,8 +12,8 @@ private:
 	Cliente m_cliente;
 	Venta *m_venta;
 protected:
-	void ClickBotonTicket( wxCommandEvent& event )  override;
 	void ClickBotonQuitProductoMenuVentaVendOnButtonClick( wxCommandEvent& event )  override;
+	void ClickBotonTicket( wxCommandEvent& event )  override;
 	void ClickBotonAggProducto( wxCommandEvent& event )  override;
 	
 public:

@@ -757,10 +757,18 @@ BaseMVQuitarProd::BaseMVQuitarProd( wxWindow* parent, wxWindowID id, const wxStr
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	m_TablaQuitarProdVend->Connect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( BaseMVQuitarProd::ClickEnCelda ), NULL, this );
+	m_BotonEliminarQuitProdVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMVQuitarProd::ClickBotonEliminar ), NULL, this );
 }
 
 BaseMVQuitarProd::~BaseMVQuitarProd()
 {
+	// Disconnect Events
+	m_TablaQuitarProdVend->Disconnect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( BaseMVQuitarProd::ClickEnCelda ), NULL, this );
+	m_BotonEliminarQuitProdVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMVQuitarProd::ClickBotonEliminar ), NULL, this );
+
 }
 
 BaseTicketActual::BaseTicketActual( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
