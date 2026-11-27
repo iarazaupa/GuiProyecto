@@ -3,12 +3,17 @@
 #include "Venta.h"
 #include "HijaTicketActualVend.h"
 #include "HijaMVQuitarProd.h"
+#include <wx/msgdlg.h>
+#include "HijaVentaConfirmadaVend.h"
 
 HijaMenuVentaVend::HijaMenuVentaVend(Sistema *sistema, int idCliente): BaseMenuVentaVend(nullptr), m_sistema(sistema), m_idCliente(idCliente){
+	m_sistema->ActualizarProductos();
 	m_cliente = m_sistema->BuscarCliente(idCliente);
 	int idVenta = static_cast<int>(m_sistema->VerVentas().size()) + 1;
 	m_nombreCliente->SetLabel(m_cliente.getNombre());
 	m_venta = new Venta(idVenta, &m_cliente);
+	
+	m_BotonConfVentaMenuVentaVend->Bind(wxEVT_BUTTON, &HijaMenuVentaVend::ClickBotonConfirmarVenta, this);
 }
 
 HijaMenuVentaVend::~HijaMenuVentaVend() {
@@ -26,9 +31,21 @@ void HijaMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick( wxComm
 }
 
 void HijaMenuVentaVend::ClickBotonTicket( wxCommandEvent& event ) {
-	HijaTicketActualVend* ventana = new HijaTicketActualVend(this, m_venta);
-	ventana->Show();
+	HijaTicketActualVend ventana(this, m_venta);
+	ventana.ShowModal();
 }
 
-
-
+void HijaMenuVentaVend::ClickBotonConfirmarVenta( wxCommandEvent& event ) {
+	if (m_venta->GetDetalles().empty()) {
+		wxMessageBox("Agregue al menos un producto antes de confirmar la venta.");
+		return;
+	}
+	
+	m_sistema->ConfirmarVenta(*m_venta);
+	m_sistema->ActualizarProductos();
+	
+	HijaVentaConfirmadaVend ventana(this, m_venta);
+	ventana.ShowModal();
+	
+	Close();
+}

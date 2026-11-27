@@ -188,6 +188,7 @@ class BaseMenuVentaVend : public wxFrame
 		virtual void ClickBotonAggProducto( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonQuitProductoMenuVentaVendOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonTicket( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonConfirmarVenta( wxCommandEvent& event ) { event.Skip(); }
 
 
 	public:

@@ -506,6 +506,7 @@ BaseMenuVentaVend::BaseMenuVentaVend( wxWindow* parent, wxWindowID id, const wxS
 	m_BotonAggProductoMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonAggProducto ), NULL, this );
 	m_BotonQuitProductoMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick ), NULL, this );
 	m_BotonTicketMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonTicket ), NULL, this );
+	m_BotonConfVentaMenuVentaVend->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonConfirmarVenta ), NULL, this );
 }
 
 BaseMenuVentaVend::~BaseMenuVentaVend()
@@ -514,6 +515,7 @@ BaseMenuVentaVend::~BaseMenuVentaVend()
 	m_BotonAggProductoMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonAggProducto ), NULL, this );
 	m_BotonQuitProductoMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonQuitProductoMenuVentaVendOnButtonClick ), NULL, this );
 	m_BotonTicketMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonTicket ), NULL, this );
+	m_BotonConfVentaMenuVentaVend->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuVentaVend::ClickBotonConfirmarVenta ), NULL, this );
 
 }
 

@@ -4,6 +4,7 @@
 #include <wx/msgdlg.h>
 
 HijaMVAggProductoVend::HijaMVAggProductoVend(Sistema *sistema, Venta *venta): BaseMVAggProductoVend(nullptr), m_sistema(sistema), m_venta(venta), m_producto(nullptr){
+
 	CargarGrillaProductos();
 	
 	vector<string> categorias = m_sistema->ObtenerCategorias();
@@ -15,9 +16,9 @@ HijaMVAggProductoVend::HijaMVAggProductoVend(Sistema *sistema, Venta *venta): Ba
 		m_categoria->SetSelection(0);
 	}
 }
+
 HijaMVAggProductoVend::~HijaMVAggProductoVend()
 {
-	delete m_producto;
 }
 
 
@@ -45,34 +46,13 @@ void HijaMVAggProductoVend::CargarGrillaProductos ( ) {
 void HijaMVAggProductoVend::ClickEnCelda(wxGridEvent& event)
 {
 	int fila = event.GetRow();
-	
 	if (fila < 0 || fila >= m_TablaAggProductoVend->GetNumberRows())
 		return;
 	
-	int idProducto = wxAtoi(
-							m_TablaAggProductoVend->GetCellValue(fila, 0)
-							);
+	int idProducto = wxAtoi(m_TablaAggProductoVend->GetCellValue(fila, 0));
+	m_producto = m_sistema->BuscarProducto(idProducto);
 	
-	vector<Producto> productos;
-	m_sistema->ListarProductos(productos);
-	
-	//liberar anterior puntero
-	delete m_producto;
-	m_producto = nullptr;
-	
-	for (int i = 0; i < productos.size(); i++) {
-		if (productos[i].GetID() == idProducto) {
-			// Crear una copia que siga existiendo
-			m_producto = new Producto(productos[i]);
-			break;
-		}
-	}
-	
-	m_IDProdVend1->SetValue(
-							wxString::Format("%d", idProducto)
-							);
-	
-	// Cargar la categoría de la fila clickeada en el combo
+	m_IDProdVend1->SetValue(wxString::Format("%d", idProducto));
 	m_categoria->SetStringSelection(m_TablaAggProductoVend->GetCellValue(fila, 2));
 	
 	event.Skip();
@@ -80,32 +60,58 @@ void HijaMVAggProductoVend::ClickEnCelda(wxGridEvent& event)
 
 
 ///verificacion de producto que funciona
+//void HijaMVAggProductoVend::ClickBotonAggProducto(wxCommandEvent& event)
+//{
+//	if (m_producto == nullptr)
+//	{
+//		wxMessageBox("No hay ningún producto seleccionado.");
+//		return;
+//	}
+//	
+//	m_cantidadCompra = wxAtoi(m_CantidadVend->GetValue());
+//	
+//	wxString mensaje;
+//	
+//	mensaje += "ID: " + wxString::Format("%d", m_producto->GetID()) + "\n";
+//	mensaje += "Nombre: " + wxString(m_producto->GetNombre()) + "\n";
+//	mensaje += "Categoria: " + wxString(m_producto->GetCategoria()) + "\n";
+//	mensaje += "Precio: " + wxString::Format("%.2f", m_producto->GetPrecio()) + "\n";
+//	mensaje += "Stock: " + wxString::Format("%d", m_producto->GetStock()) + "\n";
+//	mensaje += "Cantidad: " + wxString::Format("%d", m_cantidadCompra);
+//	
+//	wxMessageBox(mensaje, "Producto seleccionado");
+//}
+
 void HijaMVAggProductoVend::ClickBotonAggProducto(wxCommandEvent& event)
 {
-	if (m_producto == nullptr)
+	long idProducto = 0, cantidad = 0;
+	
+	if (!m_IDProdVend1->GetValue().ToLong(&idProducto) ||
+		!m_CantidadVend->GetValue().ToLong(&cantidad) ||
+		idProducto <= 0 || cantidad <= 0)
 	{
-		wxMessageBox("No hay ningún producto seleccionado.");
+		wxMessageBox(wxString::FromUTF8("Ingrese un ID y una cantidad válidos mayores a 0."));
 		return;
 	}
 	
-	m_cantidadCompra = wxAtoi(m_CantidadVend->GetValue());
+	Producto* prod = m_sistema->BuscarProducto(static_cast<int>(idProducto));
+	if (prod == nullptr)
+	{
+		wxMessageBox("No existe un producto con ese ID.");
+		return;
+	}
 	
-	wxString mensaje;
-	
-	mensaje += "ID: " + wxString::Format("%d", m_producto->GetID()) + "\n";
-	mensaje += "Nombre: " + wxString(m_producto->GetNombre()) + "\n";
-	mensaje += "Categoria: " + wxString(m_producto->GetCategoria()) + "\n";
-	mensaje += "Precio: " + wxString::Format("%.2f", m_producto->GetPrecio()) + "\n";
-	mensaje += "Stock: " + wxString::Format("%d", m_producto->GetStock()) + "\n";
-	mensaje += "Cantidad: " + wxString::Format("%d", m_cantidadCompra);
-	
-	wxMessageBox(mensaje, "Producto seleccionado");
+	if (m_sistema->AgregarProductoAVenta(*m_venta, prod, static_cast<int>(cantidad)))
+	{
+		wxMessageBox("Producto agregado al ticket.");
+		m_CantidadVend->Clear();
+	}
+	else
+	{
+		wxMessageBox("No hay stock suficiente para esa cantidad.");
+	}
 }
 
-//void HijaMVAggProductoVend::ClickBotonAggProducto(wxCommandEvent& event)
-//{
-//	///aca debe ir la logica para registrar la venta
-//}
 
 void HijaMVAggProductoVend::BuscarPorCategoria(wxCommandEvent& event)
 {

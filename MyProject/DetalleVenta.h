@@ -4,7 +4,8 @@
 
 class DetalleVenta {
 private:
-	Producto* m_producto;
+	Producto m_producto;
+	bool m_valido;
 	int m_cantidad;
 	
 public:
