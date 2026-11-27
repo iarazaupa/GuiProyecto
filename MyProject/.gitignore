@@ -1,0 +1,10 @@
+# Archivos compilados de C++
+*.o
+*.obj
+*.exe
+*.dll
+*.pdb
+*.ilk
+
+# Carpeta de compilacion
+/debug.w32/
