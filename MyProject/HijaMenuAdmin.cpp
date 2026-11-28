@@ -7,6 +7,7 @@
 #include "HijaListProdAdmin.h"
 #include "HijaPrincipal.h"
 #include "HijaEditarProducto.h"
+#include "HijaQuitarProductoAdmin.h"
 
 HijaMenuAdmin::HijaMenuAdmin(Sistema *sistema)
 	: BaseMenuAdmin(nullptr), m_sistema(sistema)
@@ -86,5 +87,10 @@ void HijaMenuAdmin::ClickBtnMenuPrin( wxCommandEvent& event )  {
 	HijaPrincipal *win = new HijaPrincipal(m_sistema);
 	win->Show();
 	this->Close();
+}
+
+void HijaMenuAdmin::ClickBotonQuitarProducto( wxCommandEvent& event )  {
+	HijaQuitarProductoAdmin *win = new HijaQuitarProductoAdmin(m_sistema);
+	win->Show();
 }
 
