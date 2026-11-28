@@ -10,6 +10,7 @@ private:
 	vector<Producto> m_stockBajo;
 protected:
 	void ClickBotonQuitarProducto( wxCommandEvent& event )  override;
+	void ClickBotonVerVentas( wxCommandEvent& event )  override;
 	void ClickBtnMenuPrin( wxCommandEvent& event )  override;
 	void ClickBotonEditarProducto( wxCommandEvent& event )  override;
 	void ClickBotonListaProductos( wxCommandEvent& event )  override;

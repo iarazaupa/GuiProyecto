@@ -437,6 +437,7 @@ class BaseMenuAdmin : public wxFrame
 		virtual void ClickBotonAgregarCliente( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonVerListaClientes( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonQuitarProducto( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonVerVentas( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonAggProducto( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonListaProductos( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonEditarProducto( wxCommandEvent& event ) { event.Skip(); }
