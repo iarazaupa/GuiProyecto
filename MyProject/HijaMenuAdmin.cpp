@@ -7,6 +7,7 @@
 #include "HijaListProdAdmin.h"
 #include "HijaPrincipal.h"
 #include "HijaEditarProducto.h"
+#include "HijaVentasAdmin.h"
 
 HijaMenuAdmin::HijaMenuAdmin(Sistema *sistema)
 	: BaseMenuAdmin(nullptr), m_sistema(sistema)
@@ -50,7 +51,7 @@ HijaMenuAdmin::HijaMenuAdmin(Sistema *sistema)
 			m_gridVentasDelMes->SetCellValue(fila, 2, wxString::Format("%.2f", totalDineroMeses[i]));
 		}
 	}
-	
+	m_BotonVerVentasAdmin->Bind(wxEVT_BUTTON, &HijaMenuAdmin::ClickBotonVerVentas, this);
 }
 
 HijaMenuAdmin::~HijaMenuAdmin() {
@@ -87,4 +88,10 @@ void HijaMenuAdmin::ClickBtnMenuPrin( wxCommandEvent& event )  {
 	win->Show();
 	this->Close();
 }
+
+void HijaMenuAdmin::ClickBotonVerVentas( wxCommandEvent& event ) {
+	HijaVentasAdmin *win = new HijaVentasAdmin(m_sistema);
+	win->Show();
+}
+
 

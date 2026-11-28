@@ -436,6 +436,7 @@ class BaseMenuAdmin : public wxFrame
 		// Virtual event handlers, override them in your derived class
 		virtual void ClickBotonAgregarCliente( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonVerListaClientes( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ClickBotonVerVentas( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonAggProducto( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonListaProductos( wxCommandEvent& event ) { event.Skip(); }
 		virtual void ClickBotonEditarProducto( wxCommandEvent& event ) { event.Skip(); }

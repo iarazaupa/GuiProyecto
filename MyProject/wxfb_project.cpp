@@ -1504,6 +1504,7 @@ BaseMenuAdmin::BaseMenuAdmin( wxWindow* parent, wxWindowID id, const wxString& t
 	// Connect Events
 	m_BotonAggClienteAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonAgregarCliente ), NULL, this );
 	m_BotonVerListClienteAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonVerListaClientes ), NULL, this );
+	m_BotonVerVentasAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonVerVentas ), NULL, this );
 	m_BotonAggProdAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonAggProducto ), NULL, this );
 	m_BotonVerListProdAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonListaProductos ), NULL, this );
 	m_BotonEditarProductoAdmin->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonEditarProducto ), NULL, this );
@@ -1515,6 +1516,7 @@ BaseMenuAdmin::~BaseMenuAdmin()
 	// Disconnect Events
 	m_BotonAggClienteAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonAgregarCliente ), NULL, this );
 	m_BotonVerListClienteAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonVerListaClientes ), NULL, this );
+	m_BotonVerVentasAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonVerVentas ), NULL, this );
 	m_BotonAggProdAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonAggProducto ), NULL, this );
 	m_BotonVerListProdAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonListaProductos ), NULL, this );
 	m_BotonEditarProductoAdmin->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseMenuAdmin::ClickBotonEditarProducto ), NULL, this );
