@@ -34,14 +34,29 @@ void HijaMenuPrincipalVend::CargarClientes() {
 	}
 }
 
-void HijaMenuPrincipalVend::ClickBotonAggClienteVend( wxCommandEvent& event )  {
+void HijaMenuPrincipalVend::ClickBotonAggClienteVend(wxCommandEvent& event) {
+	this->Disable();
+	
 	HijaAggClienteVend *win = new HijaAggClienteVend(m_sistema);
 	win->Show();
+	
+	win->Bind(wxEVT_CLOSE_WINDOW, [this](wxCloseEvent& event) {
+		this->Enable();
+		this->CargarClientes();
+		event.Skip();
+	});
 }
 
-void HijaMenuPrincipalVend::ClickBotonVenderVend( wxCommandEvent& event )  {
+void HijaMenuPrincipalVend::ClickBotonVenderVend(wxCommandEvent& event) {
+	this->Disable();
+	
 	HijaVentaVend *win = new HijaVentaVend(m_sistema);
 	win->Show();
+	
+	win->Bind(wxEVT_CLOSE_WINDOW, [this](wxCloseEvent& event) {
+		this->Enable();
+		event.Skip();
+	});
 }
 
 void HijaMenuPrincipalVend::ClickBotonStockVend( wxCommandEvent& event )  {
@@ -64,8 +79,16 @@ void HijaMenuPrincipalVend::ClickBotonModifClienteVend(wxCommandEvent& event) {
 	long dni;
 	m_TablaClientesVend->GetCellValue(m_filaSeleccionada, 0).ToLong(&dni);
 	
+	this->Disable();
+	
 	HijaModificarCliente *win = new HijaModificarCliente(this, m_sistema, dni);
 	win->Show();
+	
+	win->Bind(wxEVT_CLOSE_WINDOW, [this](wxCloseEvent& event) {
+		this->Enable();
+		this->CargarClientes();
+		event.Skip();
+	});
 }
 
 void HijaMenuPrincipalVend::ClickBotonVolverVend( wxCommandEvent& event )  {
