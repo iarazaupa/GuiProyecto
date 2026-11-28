@@ -21,6 +21,8 @@ void HijaPrincipal::ClickBotonVendedor( wxCommandEvent& event )  {
 void HijaPrincipal::ClickBotonAdministrador( wxCommandEvent& event )  {
 	HijaAdministradorContrasenia *win = new HijaAdministradorContrasenia(m_sistema);
 	win->Show();
+	
+	this->Hide();
 
 }
 
